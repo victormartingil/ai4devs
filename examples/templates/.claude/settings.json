@@ -1,0 +1,225 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(src/**)",
+
+      "Bash(find:*)", "Bash(grep:*)", "Bash(cat:*)", "Bash(ls:*)",
+      "Bash(tree:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)",
+      "Bash(sort:*)", "Bash(uniq:*)", "Bash(awk:*)", "Bash(sed:*)",
+      "Bash(diff:*)", "Bash(echo:*)", "Bash(pwd:*)", "Bash(which:*)",
+      "Bash(cut:*)", "Bash(tr:*)", "Bash(rev:*)", "Bash(column:*)",
+      "Bash(less:*)", "Bash(file:*)", "Bash(tee:*)", "Bash(xargs:*)",
+      "Bash(basename:*)", "Bash(dirname:*)", "Bash(realpath:*)",
+      "Bash(env:*)", "Bash(printenv:*)", "Bash(date:*)", "Bash(stat:*)",
+      "Bash(du:*)", "Bash(df:*)", "Bash(whoami:*)", "Bash(uname:*)",
+      "Bash(hostname:*)", "Bash(man:*)", "Bash(type:*)",
+
+      "Bash(mkdir:*)", "Bash(touch:*)", "Bash(cp:*)", "Bash(mv:*)",
+
+      "Bash(java:*)", "Bash(javac:*)", "Bash(kotlinc:*)",
+
+      "Bash(./gradlew:*)", "Bash(./gradlew clean*)",
+      "Bash(./gradlew build*)", "Bash(./gradlew test*)",
+      "Bash(./gradlew check*)", "Bash(./gradlew tasks*)",
+      "Bash(./gradlew dependencies*)", "Bash(./gradlew properties*)",
+      "Bash(gradle:*)", "Bash(gradle clean*)",
+      "Bash(gradle build*)", "Bash(gradle test*)", "Bash(gradle check*)",
+
+      "Bash(./mvnw:*)", "Bash(./mvnw clean*)", "Bash(./mvnw test*)",
+      "Bash(./mvnw verify*)", "Bash(./mvnw compile*)",
+      "Bash(mvn:*)", "Bash(mvn clean*)", "Bash(mvn test*)",
+      "Bash(mvn verify*)", "Bash(mvn compile*)",
+
+      "Bash(npm:*)", "Bash(npx:*)", "Bash(pnpm:*)",
+      "Bash(pnpm run:*)", "Bash(pnpm exec:*)",
+      "Bash(yarn:*)", "Bash(node:*)", "Bash(bun:*)", "Bash(deno:*)",
+      "Bash(tsc:*)", "Bash(vitest:*)", "Bash(tsx:*)", "Bash(oxlint:*)",
+
+      "Bash(python:*)", "Bash(python3:*)",
+      "Bash(pip:*)", "Bash(pip3:*)", "Bash(uv:*)",
+
+      "Bash(rg:*)", "Bash(fd:*)", "Bash(bat:*)",
+
+      "Bash(make:*)", "Bash(eslint:*)", "Bash(prettier:*)",
+
+      "Bash(cargo:*)", "Bash(cargo build:*)", "Bash(cargo test:*)",
+      "Bash(cargo check:*)", "Bash(cargo clippy:*)",
+      "Bash(go:*)", "Bash(go build:*)", "Bash(go test:*)", "Bash(go vet:*)",
+
+      "Bash(open:*)", "Bash(pbcopy:*)", "Bash(pbpaste:*)",
+
+      "Bash(git status:*)", "Bash(git log:*)", "Bash(git show:*)",
+      "Bash(git diff:*)", "Bash(git diff --staged:*)",
+      "Bash(git branch:*)", "Bash(git ls-files:*)",
+      "Bash(git rev-parse:*)", "Bash(git fetch:*)",
+      "Bash(git blame:*)", "Bash(git shortlog:*)",
+      "Bash(git describe:*)", "Bash(git worktree:*)",
+      "Bash(git worktree add:*)", "Bash(git worktree list:*)",
+
+      "Bash(git add:*)", "Bash(git pull:*)",
+      "Bash(git stash:*)", "Bash(git checkout:*)", "Bash(git switch:*)",
+
+      "Bash(gh pr view:*)", "Bash(gh pr list:*)",
+      "Bash(gh pr status:*)", "Bash(gh pr diff:*)", "Bash(gh pr checks:*)",
+      "Bash(gh issue view:*)", "Bash(gh issue list:*)",
+      "Bash(gh issue status:*)", "Bash(gh search:*)",
+      "Bash(gh api:*)", "Bash(gh run view:*)", "Bash(gh run list:*)",
+
+      "Bash(docker ps:*)", "Bash(docker images:*)",
+      "Bash(docker logs:*)", "Bash(docker inspect:*)",
+
+      "Bash(kubectl get:*)", "Bash(kubectl describe:*)", "Bash(kubectl logs:*)",
+
+      "Bash(jq:*)", "Bash(yq:*)",
+
+      "Bash(ps:*)", "Bash(lsof:*)", "Bash(netstat:*)", "Bash(ss:*)",
+
+      "Bash(docker-compose logs:*)", "Bash(docker compose logs:*)",
+
+      "WebSearch", "WebFetch"
+    ],
+    "deny": [
+      "Bash(sudo:*)", "Bash(su:*)", "Bash(chmod:*)", "Bash(chown:*)",
+
+      "Bash(rm --no-preserve-root:*)",
+      "Bash(rm -rf /:*)", "Bash(rm -rf /*:*)",
+      "Bash(rm -rf .*:*)", "Bash(rm -r .*:*)",
+      "Bash(rm -rf .git:*)", "Bash(rm -r .git:*)",
+      "Bash(mv .git*:*)", "Bash(cp -r .git*:*)",
+      "Bash(rm -rf ..:*)", "Bash(rm -r ..:*)",
+      "Bash(rm -rf ../*:*)", "Bash(rm -r ../*:*)",
+
+      "Bash(rm -rf src:*)", "Bash(rm -r src:*)",
+      "Bash(rm -rf build:*)", "Bash(rm -r build:*)",
+      "Bash(rm -rf target:*)", "Bash(rm -r target:*)",
+      "Bash(rm -rf gradle:*)", "Bash(rm -r gradle:*)",
+
+      "Bash(rm gradlew:*)", "Bash(rm mvnw:*)",
+      "Bash(rm -f gradlew:*)", "Bash(rm -f mvnw:*)",
+      "Bash(rm settings.gradle*:*)", "Bash(rm build.gradle*:*)",
+      "Bash(rm pom.xml:*)", "Bash(rm docker-compose*:*)",
+      "Bash(rm Dockerfile:*)", "Bash(rm .env:*)",
+
+      "Bash(bash -c:*)", "Bash(sh -c:*)",
+      "Bash(eval:*)", "Bash(exec:*)", "Bash(source:*)", "Bash(. :*)",
+
+      "Bash(python -c:*)", "Bash(python3 -c:*)",
+      "Bash(node -e:*)", "Bash(node --eval:*)",
+      "Bash(perl -e:*)", "Bash(ruby -e:*)",
+      "Bash(bun -e:*)", "Bash(deno eval:*)",
+
+      "Bash(nc:*)", "Bash(netcat:*)", "Bash(ncat:*)",
+      "Bash(socat:*)", "Bash(telnet:*)", "Bash(nmap:*)",
+
+      "Bash(ping:*)", "Bash(nslookup:*)", "Bash(dig:*)", "Bash(host:*)",
+
+      "Bash(curl * | bash:*)", "Bash(curl * | sh:*)",
+      "Bash(wget * | bash:*)", "Bash(wget * | sh:*)",
+
+      "Bash(curl *169.254.169.254*:*)", "Bash(wget *169.254.169.254*:*)",
+      "Bash(curl *metadata.google.internal*:*)",
+      "Bash(wget *metadata.google.internal*:*)",
+
+      "Bash(dd:*)", "Bash(killall:*)", "Bash(kill -9 -1:*)",
+
+      "Bash(git merge:*)", "Bash(git rebase:*)",
+      "Bash(git reset --hard:*)", "Bash(git clean:*)", "Bash(git clean -fd:*)",
+      "Bash(git tag:*)", "Bash(git remote set-url:*)", "Bash(git remote add:*)",
+      "Bash(git cherry-pick:*)", "Bash(git revert:*)",
+      "Bash(git config --global:*)", "Bash(git config --system:*)",
+      "Bash(git checkout -- .:*)", "Bash(git restore .:*)",
+      "Bash(git push --force:*)", "Bash(git push *--force*:*)",
+
+      "Bash(gh pr create:*)", "Bash(gh pr merge:*)",
+      "Bash(gh release:*)", "Bash(gh repo:*)",
+
+      "Bash(docker push:*)", "Bash(docker rm:*)", "Bash(docker rmi:*)",
+      "Bash(docker stop:*)", "Bash(docker kill:*)",
+      "Bash(docker run --privileged:*)", "Bash(docker run *--privileged*:*)",
+      "Bash(docker run *docker.sock*:*)",
+
+      "Bash(kubectl delete:*)", "Bash(kubectl apply:*)",
+      "Bash(kubectl create:*)", "Bash(kubectl port-forward:*)",
+      "Bash(kubectl cp:*)", "Bash(kubectl exec:*)",
+
+      "Bash(./gradlew *deploy*:*)", "Bash(./gradlew *publish*:*)",
+      "Bash(./gradlew *release*:*)", "Bash(./gradlew *upload*:*)",
+      "Bash(gradle *deploy*:*)", "Bash(gradle *publish*:*)",
+      "Bash(gradle *release*:*)", "Bash(gradle *upload*:*)",
+      "Bash(./mvnw *deploy*:*)", "Bash(./mvnw *release*:*)",
+      "Bash(mvn *deploy*:*)", "Bash(mvn *release*:*)",
+
+      "Bash(npm publish:*)", "Bash(npm run *deploy*:*)",
+      "Bash(npm run *release*:*)",
+      "Bash(yarn publish:*)", "Bash(yarn run *deploy*:*)",
+      "Bash(yarn run *release*:*)",
+      "Bash(pnpm publish:*)", "Bash(pnpm run *deploy*:*)",
+      "Bash(pnpm run *release*:*)", "Bash(bun publish:*)",
+
+      "Bash(aws cloudformation delete-stack:*)",
+      "Bash(aws cloudformation update-stack:*)",
+      "Bash(aws ec2 terminate-instances:*)", "Bash(aws ec2 stop-instances:*)",
+      "Bash(aws rds delete-db-instance:*)", "Bash(aws rds delete-db-cluster:*)",
+      "Bash(aws s3 rm:*)", "Bash(aws s3 rb:*)",
+      "Bash(aws s3api delete-object:*)", "Bash(aws s3api delete-bucket:*)",
+      "Bash(aws iam delete-*:*)", "Bash(aws ecr batch-delete-image:*)",
+      "Bash(aws lambda delete-function:*)",
+
+      "Read(**/.env)", "Read(**/.env.*)",
+      "Read(**/secrets/**)", "Read(**/*secret*)", "Read(**/*credentials*)",
+      "Read(~/.ssh/**)", "Read(~/.aws/**)", "Read(~/.azure/**)",
+      "Read(~/.config/gh/**)", "Read(~/.git-credentials)",
+      "Read(~/.docker/config.json)", "Read(~/.kube/**)",
+      "Read(~/.npmrc)", "Read(~/.pypirc)", "Read(~/.gem/credentials)",
+      "Read(~/.netrc)", "Read(~/Library/Keychains/**)",
+
+      "Read(~/Library/Application Support/**/metamask*/**)",
+      "Read(~/Library/Application Support/**/electrum*/**)",
+      "Read(~/Library/Application Support/**/exodus*/**)",
+      "Read(~/Library/Application Support/**/phantom*/**)",
+      "Read(~/Library/Application Support/**/solflare*/**)",
+
+      "Edit(~/.bashrc)", "Edit(~/.zshrc)",
+      "Edit(~/.bash_profile)", "Edit(~/.profile)"
+    ],
+    "ask": [
+      "Bash(curl:*)", "Bash(wget:*)",
+
+      "Bash(rm:*)",
+
+      "Bash(npm install:*)", "Bash(npm i :*)",
+      "Bash(pnpm install:*)", "Bash(pnpm add:*)",
+      "Bash(yarn add:*)", "Bash(yarn install:*)",
+      "Bash(pip install:*)", "Bash(pip3 install:*)",
+      "Bash(uv pip install:*)", "Bash(uv add:*)",
+      "Bash(bun install:*)", "Bash(bun add:*)", "Bash(deno install:*)",
+
+      "Bash(git commit:*)", "Bash(git push:*)",
+      "Bash(git config --local:*)",
+
+      "Bash(pkill:*)",
+
+      "Bash(docker exec:*)", "Bash(docker build:*)", "Bash(docker run:*)",
+      "Bash(docker-compose up:*)", "Bash(docker-compose down:*)",
+      "Bash(docker-compose restart:*)",
+      "Bash(docker compose up:*)", "Bash(docker compose down:*)",
+      "Bash(docker compose restart:*)",
+
+      "Bash(aws sts:*)", "Bash(aws s3 ls:*)", "Bash(aws logs:*)",
+      "Bash(aws cloudformation describe:*)", "Bash(aws ec2 describe:*)",
+      "Bash(aws rds describe:*)", "Bash(aws ecr describe:*)",
+      "Bash(aws iam list:*)", "Bash(aws iam get:*)"
+    ]
+  },
+  "ignorePatterns": [
+    "**/build/**",
+    "**/target/**",
+    "**/.gradle/**",
+    "**/.idea/**",
+    "**/node_modules/**",
+    "**/*.class",
+    "**/*.jar",
+    "**/*.log"
+  ]
+}

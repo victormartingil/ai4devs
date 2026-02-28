@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Coding Agents — AI4Devs · Victor Martin</title>
+<script>
+(function(){var l=localStorage.getItem('ai4devs-lang')||(navigator.language&&navigator.language.startsWith('en')?'en':'es');document.documentElement.lang=l;})();
+</script>
 <style>
 /* ===== HIGHLIGHT.JS ===== */
 pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
@@ -23,20 +26,22 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
   --surface: #111111;
   --card: #161616;
   --border: rgba(255,255,255,0.07);
-  --border-hover: rgba(0,255,136,0.30);
+  --border-hover: rgba(0,232,125,0.25);
   --text: #e8e8e8;
-  --text-muted: #666666;
-  --accent: #00ff88;
-  --accent-dim: rgba(0,255,136,0.10);
-  --accent-glow: rgba(0,255,136,0.25);
+  --text-muted: #888888;
+  --accent: #00e87d;
+  --accent-dim: rgba(0,232,125,0.10);
+  --accent-glow: rgba(0,232,125,0.22);
   --blue: #3b82f6;
   --blue-dim: rgba(59,130,246,0.10);
-  --yellow: #fbbf24;
-  --yellow-dim: rgba(251,191,36,0.10);
-  --red: #ff6b6b;
-  --red-dim: rgba(255,107,107,0.10);
+  --yellow: #f5c542;
+  --yellow-dim: rgba(245,197,66,0.10);
+  --red: #f07070;
+  --red-dim: rgba(240,112,112,0.10);
   --purple: #a78bfa;
   --purple-dim: rgba(167,139,250,0.10);
+  --orange: #f59e42;
+  --orange-dim: rgba(245,158,66,0.10);
   --sidebar-w: 240px;
   --radius: 8px;
   --radius-sm: 4px;
@@ -48,6 +53,7 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-sm); }
 html { scroll-behavior: smooth; }
 body {
   display: block;
@@ -272,9 +278,10 @@ section + section { border-top: 1px solid var(--border); }
 }
 .badge-accent { background: var(--accent-dim); color: var(--accent); border-color: var(--border-hover); }
 .badge-blue { background: var(--blue-dim); color: var(--blue); border-color: rgba(59,130,246,0.3); }
-.badge-yellow { background: var(--yellow-dim); color: var(--yellow); border-color: rgba(251,191,36,0.3); }
-.badge-red { background: var(--red-dim); color: var(--red); border-color: rgba(255,107,107,0.3); }
+.badge-yellow { background: var(--yellow-dim); color: var(--yellow); border-color: rgba(245,197,66,0.3); }
+.badge-red { background: var(--red-dim); color: var(--red); border-color: rgba(240,112,112,0.3); }
 .badge-purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(167,139,250,0.3); }
+.badge-orange { background: var(--orange-dim); color: var(--orange); border-color: rgba(245,158,66,0.3); }
 
 /* ===== CODE BLOCKS ===== */
 .code-block {
@@ -401,7 +408,7 @@ tr:last-child td { border-bottom: none; }
   flex-direction: column;
   justify-content: center;
   background:
-    radial-gradient(circle, rgba(0,255,136,0.08) 1px, transparent 1px)
+    radial-gradient(circle, rgba(0,232,125,0.08) 1px, transparent 1px)
     0 0 / 32px 32px,
     var(--bg);
 }
@@ -411,7 +418,7 @@ tr:last-child td { border-bottom: none; }
   font-weight: 900;
   line-height: 1.05;
   color: var(--accent);
-  text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(0,255,136,0.15);
+  text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(0,232,125,0.15);
 }
 .hero-h2 {
   font-family: var(--font-display);
@@ -485,7 +492,7 @@ tr:last-child td { border-bottom: none; }
   font-family: var(--font-mono);
   line-height: 1.5;
 }
-.ex-bad { background: var(--red-dim); border: 1px solid rgba(255,107,107,0.3); color: var(--red); }
+.ex-bad { background: var(--red-dim); border: 1px solid rgba(240,112,112,0.3); color: var(--red); }
 .ex-good { background: var(--accent-dim); border: 1px solid var(--border-hover); color: var(--accent); }
 .ex-label { font-size: 10px; font-weight: 700; margin-bottom: 4px; opacity: 0.7; }
 
@@ -537,7 +544,7 @@ tr:last-child td { border-bottom: none; }
   margin-bottom: 8px;
 }
 .metric-label { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-.metric-source { font-size: 10px; color: var(--text-muted); opacity: 0.5; margin-top: 6px; font-family: var(--font-mono); }
+.metric-source { font-size: 10px; color: var(--text-muted); opacity: 0.7; margin-top: 6px; font-family: var(--font-mono); }
 
 /* ===== CHECKLIST ===== */
 .checklist-item {
@@ -634,14 +641,14 @@ summary:hover { background: rgba(255,255,255,0.03); }
 }
 .ap-card:hover {
   border-color: var(--red);
-  box-shadow: 0 4px 20px rgba(255,107,107,0.15);
+  box-shadow: 0 4px 20px rgba(240,112,112,0.15);
 }
 .ap-header {
   display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
 }
 .ap-tag {
   background: var(--red-dim);
-  border: 1px solid rgba(255,107,107,0.3);
+  border: 1px solid rgba(240,112,112,0.3);
   border-radius: var(--radius-sm);
   padding: 2px 8px;
   font-family: var(--font-mono);
@@ -659,7 +666,7 @@ summary:hover { background: rgba(255,255,255,0.03); }
   color: var(--red);
   font-family: var(--font-mono);
 }
-.ap-rule::before { content: "⚠ Regla: "; font-weight: 700; }
+.ap-rule::before { content: "⚠ "; font-weight: 700; }
 
 /* ===== MCP ===== */
 .mcp-badge {
@@ -696,10 +703,17 @@ summary:hover { background: rgba(255,255,255,0.03); }
   display: inline-block;
 }
 .level-1 .level-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--border-hover); }
-.level-2 .level-badge { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
-.level-3 .level-badge { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,107,107,0.3); }
+.level-2 .level-badge { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(245,197,66,0.3); }
+.level-3 .level-badge { background: var(--red-dim); color: var(--red); border: 1px solid rgba(240,112,112,0.3); }
 .level-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 8px; }
 .level-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  body.presenting section { padding: 50px 48px; }
+}
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
@@ -716,6 +730,13 @@ summary:hover { background: rgba(255,255,255,0.03); }
   .hamburger { display: flex; }
   .section-num { font-size: 80px; }
   body.presenting section { padding: 40px 24px; }
+  .table-wrap { position: relative; }
+  .table-wrap::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 24px;
+    background: linear-gradient(to right, transparent, var(--card)); pointer-events: none;
+  }
+  #card-modal { padding: 16px; }
+  #card-modal-inner { padding: 24px 20px; }
 }
 @media (max-width: 480px) {
   .hero-h1 { font-size: clamp(32px, 10vw, 48px); }
@@ -778,7 +799,7 @@ html[lang="en"] [data-lang="es"] { display: none; }
 <div id="progress-bar"></div>
 
 <!-- HAMBURGER -->
-<button class="hamburger" id="hamburger" aria-label="Toggle menu">
+<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
   <span></span><span></span><span></span>
 </button>
 
@@ -795,7 +816,7 @@ html[lang="en"] [data-lang="es"] { display: none; }
     <a href="#s3" data-section="s3"><span class="nav-label"><span data-lang="es">Archivos Contexto</span><span data-lang="en">Context Files</span></span><span class="nav-time">10 min</span></a>
     <a href="#s4" data-section="s4"><span class="nav-label"><span data-lang="es">Mapa por Agente</span><span data-lang="en">Agent File Map</span></span><span class="nav-time">7 min</span></a>
     <a href="#s5" data-section="s5"><span class="nav-label">MCP</span><span class="nav-time">7 min</span></a>
-    <a href="#s6" data-section="s6"><span class="nav-label"><span data-lang="es">Multi-Agente</span><span data-lang="en">Multi-Agent</span></span><span class="nav-time">5 min</span></a>
+    <a href="#s6" data-section="s6"><span class="nav-label"><span data-lang="es">Multi-Agente y Orquestación</span><span data-lang="en">Multi-Agent &amp; Orchestration</span></span><span class="nav-time">15 min</span></a>
     <a href="#s7" data-section="s7"><span class="nav-label">Workflow</span><span class="nav-time">8 min</span></a>
     <a href="#s8" data-section="s8"><span class="nav-label"><span data-lang="es">Comparativa</span><span data-lang="en">Comparison</span></span><span class="nav-time">5 min</span></a>
     <a href="#s9" data-section="s9"><span class="nav-label"><span data-lang="es">Antipatrones</span><span data-lang="en">Anti-patterns</span></span><span class="nav-time">5 min</span></a>
@@ -838,13 +859,13 @@ html[lang="en"] [data-lang="es"] { display: none; }
     <div class="card">
       <div class="card-title">LLM</div>
       <p><span data-lang="es">Predice el siguiente token. No ejecuta, no guarda estado.</span><span data-lang="en">Predicts the next token. Takes text, returns text. It doesn't execute, doesn't store state, doesn't act.</span></p>
-      <p style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">GPT-4, Claude, Gemini son LLMs.</p>
+      <p style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--text-muted)"><span data-lang="es">GPT-4, Claude, Gemini son LLMs.</span><span data-lang="en">GPT-4, Claude, Gemini are LLMs.</span></p>
     </div>
     <div class="card" style="border-color:rgba(59,130,246,0.3)">
       <div class="card-title" style="color:var(--blue)"><span data-lang="es">Herramienta</span><span data-lang="en">Tool</span></div>
       <p><span data-lang="es">Cualquier cosa que el agente puede ejecutar: leer archivo, buscar internet, ejecutar comando, abrir PR, actualizar Jira.</span><span data-lang="en">Anything the agent can execute: read a file, search the internet, run a terminal command, open a PR, update a Jira ticket.</span></p>
     </div>
-    <div class="card" style="border-color:rgba(251,191,36,0.3)">
+    <div class="card" style="border-color:rgba(245,197,66,0.3)">
       <div class="card-title" style="color:var(--yellow)"><span data-lang="es">Agente de IA</span><span data-lang="en">AI Agent</span></div>
       <p><span data-lang="es">Un LLM al que le das herramientas y un bucle de decisión. No solo responde: <strong>evalúa, decide, ejecuta, observa, vuelve a decidir.</strong></span><span data-lang="en">An LLM given tools and a decision loop. It doesn't just respond: it <strong>evaluates, decides which tool to use, executes, observes the result, and decides again.</strong></span></p>
     </div>
@@ -856,7 +877,7 @@ html[lang="en"] [data-lang="es"] { display: none; }
         <thead>
           <tr>
             <th><span data-lang="es">Capacidad</span><span data-lang="en">Capability</span></th>
-            <th>LLM solo</th>
+            <th><span data-lang="es">LLM solo</span><span data-lang="en">LLM alone</span></th>
             <th><span data-lang="es">Agente</span><span data-lang="en">Agent</span></th>
           </tr>
         </thead>
@@ -890,7 +911,7 @@ html[lang="en"] [data-lang="es"] { display: none; }
     <div class="card">
       <div class="card-title"><span data-lang="es">Ejemplo: Copilot</span><span data-lang="en">Example: Copilot</span></div>
       <div class="grid-2" style="margin-top:12px;gap:12px">
-        <div style="padding:12px 16px;background:var(--red-dim);border:1px solid rgba(255,107,107,0.3);border-radius:var(--radius-sm)">
+        <div style="padding:12px 16px;background:var(--red-dim);border:1px solid rgba(240,112,112,0.3);border-radius:var(--radius-sm)">
           <div style="font-size:10px;color:var(--red);font-weight:700;margin-bottom:4px"><span data-lang="es">❌ NO es agente</span><span data-lang="en">❌ NOT an agent</span></div>
           <div style="font-size:13px"><span data-lang="es">Autocompletado inline — solo sugiere.</span><span data-lang="en">Inline autocomplete — only suggests.</span></div>
         </div>
@@ -943,10 +964,14 @@ html[lang="en"] [data-lang="es"] { display: none; }
     </div>
     <div class="code-block" style="margin-top:8px">
       <div class="code-block-header"><span data-lang="es">ejemplo de prompt preciso</span><span data-lang="en">precise prompt example</span></div>
-      <pre><code>"Crea un componente React con TypeScript.
+      <pre data-lang="es"><code>"Crea un componente React con TypeScript.
 Usa Tailwind para estilos.
 Sin useState — el estado viene por props desde el contexto padre.
 Debe ser accesible (aria-label incluido)."</code></pre>
+      <pre data-lang="en"><code>"Create a React component with TypeScript.
+Use Tailwind for styles.
+No useState — state comes via props from the parent context.
+Must be accessible (aria-label included)."</code></pre>
     </div>
   </div>
 
@@ -969,11 +994,11 @@ Debe ser accesible (aria-label incluido)."</code></pre>
       <div class="rule-title"><span data-lang="es">Itera en pasos pequeños</span><span data-lang="en">Iterate in small steps</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px">
-      <span class="badge badge-accent">dominio</span>
+      <span class="badge badge-accent"><span data-lang="es">dominio</span><span data-lang="en">domain</span></span>
       <span style="color:var(--text-muted)">→</span>
       <span class="badge badge-blue">use case</span>
       <span style="color:var(--text-muted)">→</span>
-      <span class="badge badge-yellow">adaptador</span>
+      <span class="badge badge-yellow"><span data-lang="es">adaptador</span><span data-lang="en">adapter</span></span>
       <span style="color:var(--text-muted)">→</span>
       <span class="badge badge-purple">tests</span>
     </div>
@@ -987,9 +1012,12 @@ Debe ser accesible (aria-label incluido)."</code></pre>
       <div class="rule-title"><span data-lang="es">Usa ejemplos negativos</span><span data-lang="en">Use negative examples</span></div>
     </div>
     <div class="code-block" style="margin-top:8px">
-      <pre><code>"No uses @Autowired directamente.
+      <pre data-lang="es"><code>"No uses @Autowired directamente.
 No generes @Data de Lombok en entidades de dominio.
 No mezcles lógica de negocio en los controladores."</code></pre>
+      <pre data-lang="en"><code>"Don't use @Autowired directly.
+Don't generate Lombok's @Data on domain entities.
+Don't mix business logic in controllers."</code></pre>
     </div>
   </div>
 
@@ -1077,85 +1105,125 @@ No mezcles lógica de negocio en los controladores."</code></pre>
     </div>
     <div id="tab-bac" class="tab-content active code-block">
       <pre data-lang="es"><code class="language-plaintext">my-service/
-├── AGENTS.md                              ← portable, reconocido por todos los agentes
-├── CLAUDE.md                              ← específico para Claude Code
-├── GEMINI.md                              ← específico para Gemini CLI
-├── .github/
-│   ├── copilot-instructions.md            ← contexto principal para Copilot
-│   └── instructions/
-│       ├── backend.instructions.md        ← contexto Copilot para tareas backend
-│       └── testing.instructions.md       ← contexto Copilot para escritura de tests
-├── .claude/
-│   ├── settings.json                      ← permisos del agente (Claude Code)
-│   └── skills/
-│       ├── scaffold-usecase.sh            ← scaffold de use case completo
-│       └── create-adr.sh                 ← genera ADR con plantilla del equipo
-├── .gemini/
-│   └── settings.json                      ← permisos del agente (Gemini CLI)
-└── docs/
-    └── context/
-        └── DOMAIN.md                      ← glosario de dominio de negocio</code></pre>
+│
+│  ── 📋 Conocimiento central (fuente única de verdad) ──
+│
+├── AGENTS.md                              ← manifiesto maestro (índice + persona + reglas)
+├── docs/
+│   ├── ai/
+│   │   ├── instructions/                  ← reglas atómicas por responsabilidad
+│   │   │   ├── backend.md
+│   │   │   └── testing.md
+│   │   ├── skills/                        ← workflows reutilizables (SKILL.md)
+│   │   │   └── create-pr/
+│   │   │       ├── SKILL.md
+│   │   │       └── prepare-pr-readiness.sh
+│   │   ├── personas/                      ← roles especializados
+│   │   │   └── pr-reviewer.agent.md
+│   │   └── prompts/                       ← templates reutilizables
+│   │       └── generate-tests.prompt.md
+│   └── context/
+│       ├── DOMAIN.md                      ← glosario de dominio
+│       └── USE-CASES.md                   ← casos de uso
+│
+│  ── 🔌 Entry points (thin proxies → AGENTS.md) ──
+│
+├── .github/copilot-instructions.md        ← Copilot: "lee AGENTS.md"
+├── CLAUDE.md                              ← Claude Code: @AGENTS.md (import)
+├── GEMINI.md                              ← Gemini CLI: @AGENTS.md (import)
+│
+│  ── 🔒 Permisos y config tool-specific ──
+│
+├── .claude/settings.json                  ← allow / deny / ask
+├── .gemini/settings.json                  ← sandbox + excludeTools
+├── .codex/config.toml                     ← sandbox_mode + approval
+│
+│  ── 🔗 Discovery nativo de skills (symlinks → docs/ai/skills/) ──
+│
+├── .agents/skills/create-pr → ../../docs/ai/skills/create-pr  ← Copilot + Gemini + Codex
+└── .claude/skills/create-pr → ../../docs/ai/skills/create-pr  ← Claude Code</code></pre>
       <pre data-lang="en"><code class="language-plaintext">my-service/
-├── AGENTS.md                              ← portable, recognized by all agents
-├── CLAUDE.md                              ← specific to Claude Code
-├── GEMINI.md                              ← specific to Gemini CLI
-├── .github/
-│   ├── copilot-instructions.md            ← main context for Copilot
-│   └── instructions/
-│       ├── backend.instructions.md        ← Copilot context for backend tasks
-│       └── testing.instructions.md       ← Copilot context for writing tests
-├── .claude/
-│   ├── settings.json                      ← agent permissions (Claude Code)
-│   └── skills/
-│       ├── scaffold-usecase.sh            ← full use case scaffold
-│       └── create-adr.sh                 ← generates ADR from team template
-├── .gemini/
-│   └── settings.json                      ← agent permissions (Gemini CLI)
-└── docs/
-    └── context/
-        └── DOMAIN.md                      ← business domain glossary</code></pre>
+│
+│  ── 📋 Central knowledge (single source of truth) ──
+│
+├── AGENTS.md                              ← master manifest (index + persona + rules)
+├── docs/
+│   ├── ai/
+│   │   ├── instructions/                  ← atomic rules per concern
+│   │   │   ├── backend.md
+│   │   │   └── testing.md
+│   │   ├── skills/                        ← reusable workflows (SKILL.md)
+│   │   │   └── create-pr/
+│   │   │       ├── SKILL.md
+│   │   │       └── prepare-pr-readiness.sh
+│   │   ├── personas/                      ← specialized roles
+│   │   │   └── pr-reviewer.agent.md
+│   │   └── prompts/                       ← reusable templates
+│   │       └── generate-tests.prompt.md
+│   └── context/
+│       ├── DOMAIN.md                      ← domain glossary
+│       └── USE-CASES.md                   ← use cases
+│
+│  ── 🔌 Entry points (thin proxies → AGENTS.md) ──
+│
+├── .github/copilot-instructions.md        ← Copilot: "read AGENTS.md"
+├── CLAUDE.md                              ← Claude Code: @AGENTS.md (import)
+├── GEMINI.md                              ← Gemini CLI: @AGENTS.md (import)
+│
+│  ── 🔒 Permissions and tool-specific config ──
+│
+├── .claude/settings.json                  ← allow / deny / ask
+├── .gemini/settings.json                  ← sandbox + excludeTools
+├── .codex/config.toml                     ← sandbox_mode + approval
+│
+│  ── 🔗 Native skill discovery (symlinks → docs/ai/skills/) ──
+│
+├── .agents/skills/create-pr → ../../docs/ai/skills/create-pr  ← Copilot + Gemini + Codex
+└── .claude/skills/create-pr → ../../docs/ai/skills/create-pr  ← Claude Code</code></pre>
     </div>
     <div id="tab-agents" class="tab-content code-block">
-      <div class="code-block-header"><span data-lang="es">AGENTS.md / CLAUDE.md / GEMINI.md — mismo contenido base</span><span data-lang="en">AGENTS.md / CLAUDE.md / GEMINI.md — same base content</span></div>
-      <pre data-lang="es"><code class="language-markdown"># Contexto del Proyecto
-## Stack tecnológico
-- Java 21, Spring Boot 3.3
-- PostgreSQL, Kafka, Redis
-- Docker + Kubernetes
+      <div class="code-block-header"><span data-lang="es">AGENTS.md — manifiesto maestro (todos los agentes)</span><span data-lang="en">AGENTS.md — master manifest (all agents)</span></div>
+      <pre data-lang="es"><code class="language-markdown"># Agent Manifest — My Service
 
-## Arquitectura
-Hexagonal (Ports &amp; Adapters). NUNCA mezcles lógica de negocio en adaptadores ni controladores.
-Estructura de paquetes:
-- `domain/` — entidades, value objects, puertos, eventos
-- `application/` — use cases, comandos, queries
-- `infrastructure/` — adaptadores, configuración, persistencia
+## Core Persona
+- Senior Software Engineer, Hexagonal Architecture, Spring Boot.
+- Todo código, comentarios y documentación en inglés.
 
-## Convenciones de código
-- Inyección siempre por constructor, nunca @Autowired en campo
-- Sin Lombok en clases de dominio
-- Tests: JUnit 5 + Mockito, nomenclatura: método_escenario_resultadoEsperado
+## Stack: Java 21, Spring Boot 3.3, PostgreSQL, Kafka, Redis
+
+## Knowledge Base (fuente única de verdad)
+- Backend: [docs/ai/instructions/backend.md](docs/ai/instructions/backend.md)
+- Testing: [docs/ai/instructions/testing.md](docs/ai/instructions/testing.md)
+- Dominio: [docs/context/DOMAIN.md](docs/context/DOMAIN.md)
+
+## Skills
+- Crear PR: [docs/ai/skills/create-pr/SKILL.md](docs/ai/skills/create-pr/SKILL.md)
+
+## Personas
+- PR Reviewer: [docs/ai/personas/pr-reviewer.agent.md](docs/ai/personas/pr-reviewer.agent.md)
 
 ## Lo que NUNCA debes hacer
 - No añadas dependencias sin pedirlo
 - No hagas commits automáticos
 - No mezcles responsabilidades entre capas</code></pre>
-      <pre data-lang="en"><code class="language-markdown"># Project Context
-## Tech Stack
-- Java 21, Spring Boot 3.3
-- PostgreSQL, Kafka, Redis
-- Docker + Kubernetes
+      <pre data-lang="en"><code class="language-markdown"># Agent Manifest — My Service
 
-## Architecture
-Hexagonal (Ports &amp; Adapters). NEVER mix business logic in adapters or controllers.
-Package structure:
-- `domain/` — entities, value objects, ports, events
-- `application/` — use cases, commands, queries
-- `infrastructure/` — adapters, configuration, persistence
+## Core Persona
+- Senior Software Engineer, Hexagonal Architecture, Spring Boot.
+- All code, comments and documentation in English.
 
-## Code Conventions
-- Always inject via constructor, never @Autowired on field
-- No Lombok in domain classes
-- Tests: JUnit 5 + Mockito, naming: method_scenario_expectedResult
+## Stack: Java 21, Spring Boot 3.3, PostgreSQL, Kafka, Redis
+
+## Knowledge Base (single source of truth)
+- Backend: [docs/ai/instructions/backend.md](docs/ai/instructions/backend.md)
+- Testing: [docs/ai/instructions/testing.md](docs/ai/instructions/testing.md)
+- Domain: [docs/context/DOMAIN.md](docs/context/DOMAIN.md)
+
+## Skills
+- Create PR: [docs/ai/skills/create-pr/SKILL.md](docs/ai/skills/create-pr/SKILL.md)
+
+## Personas
+- PR Reviewer: [docs/ai/personas/pr-reviewer.agent.md](docs/ai/personas/pr-reviewer.agent.md)
 
 ## What you must NEVER do
 - Do not add dependencies without being asked
@@ -1182,43 +1250,151 @@ Package structure:
 - An order can only be cancelled in PENDING or CONFIRMED status.</code></pre>
     </div>
     <div id="tab-skills" class="tab-content code-block">
-      <div class="code-block-header">.claude/skills/scaffold-usecase.sh</div>
-      <pre data-lang="es"><code class="language-bash">#!/bin/bash
-# Skill: scaffold-usecase
-# INSTRUCCIONES PARA EL AGENTE:
-# 1. Crea el comando: application/usecase/${NAME}Command.java
-# 2. Crea el use case: application/usecase/${NAME}UseCase.java
-# 3. Crea el test: application/usecase/${NAME}UseCaseTest.java
-# 4. Sigue las convenciones del archivo de contexto del proyecto.
-# 5. NO crees el adaptador HTTP — eso va en un paso separado.</code></pre>
-      <pre data-lang="en"><code class="language-bash">#!/bin/bash
-# Skill: scaffold-usecase
-# AGENT INSTRUCTIONS:
-# 1. Create the command: application/usecase/${NAME}Command.java
-# 2. Create the use case: application/usecase/${NAME}UseCase.java
-# 3. Create the test: application/usecase/${NAME}UseCaseTest.java
-# 4. Follow the conventions in the project context file.
-# 5. DO NOT create the HTTP adapter — that goes in a separate step.</code></pre>
+      <div class="code-block-header"><span data-lang="es">docs/ai/skills/create-pr/SKILL.md — formato portable</span><span data-lang="en">docs/ai/skills/create-pr/SKILL.md — portable format</span></div>
+      <pre data-lang="es"><code class="language-markdown">---
+name: create-pr
+description: Crea un PR con formato convencional
+context: fork
+agent: code-reviewer        # invoca al subagente tras crear el PR
+---
+
+# Crear Pull Request
+
+## Pasos
+1. Ejecuta `git diff main...HEAD` para entender los cambios
+2. Analiza y categoriza (feature, fix, refactor)
+3. Genera título siguiendo conventional commits
+4. Genera cuerpo con resumen, testing, breaking changes
+5. Crea el PR con `gh pr create`</code></pre>
+      <pre data-lang="en"><code class="language-markdown">---
+name: create-pr
+description: Creates a PR with conventional format
+context: fork
+agent: code-reviewer        # invokes the subagent after creating the PR
+---
+
+# Create Pull Request
+
+## Steps
+1. Run `git diff main...HEAD` to understand all changes
+2. Analyze and categorize (feature, fix, refactor)
+3. Generate title following conventional commits
+4. Generate body with summary, testing, breaking changes
+5. Create the PR using `gh pr create`</code></pre>
     </div>
-    <div id="tab-perms" class="tab-content code-block">
-      <div class="code-block-header">.claude/settings.json</div>
-      <pre><code class="language-json">{
+    <div id="tab-perms" class="tab-content">
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title" style="color:var(--yellow)"><span data-lang="es">Permisos por agente — dónde se configuran</span><span data-lang="en">Permissions per agent — where they live</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th style="color:var(--blue)">Copilot</th>
+                <th style="color:var(--accent)">Claude Code</th>
+                <th style="color:var(--yellow)">Gemini CLI</th>
+                <th style="color:var(--purple)">Codex CLI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--text-muted)"><span data-lang="es">Archivo</span><span data-lang="en">File</span></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);color:var(--blue)">copilot-setup-steps.yml</code><br><span style="font-size:10px;color:var(--text-muted)">+ org firewall</span></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);color:var(--accent)">.claude/settings.json</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);color:var(--yellow)">.gemini/settings.json</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);color:var(--purple)">.codex/config.toml</code></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted)"><span data-lang="es">Modelo</span><span data-lang="en">Model</span></td>
+                <td style="font-size:11px"><span data-lang="es">Firewall de red + permisos de org</span><span data-lang="en">Network firewall + org permissions</span></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">allow / deny / ask</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">sandbox + excludeTools</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">sandbox_mode + approval</code></td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted)"><span data-lang="es">Nivel global</span><span data-lang="en">Global level</span></td>
+                <td style="font-size:11px">Org/Enterprise settings</td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">~/.claude/settings.json</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">~/.gemini/settings.json</code></td>
+                <td style="font-size:11px"><code style="font-family:var(--font-mono);font-size:10px">~/.codex/config.toml</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header"><span data-lang="es">Ejemplo: .claude/settings.json — allowlist investigada para vibe coding seguro</span><span data-lang="en">Example: .claude/settings.json — researched allowlist for secure vibe coding</span></div>
+        <pre data-lang="es"><code class="language-json">{
   "permissions": {
     "allow": [
-      "Read(**)",
-      "Write(src/**)",
-      "Bash(mvn test)",
-      "Bash(git diff)",
-      "Bash(git status)"
+      "Read(**)", "Write(src/**)",
+      // Shell solo-lectura
+      "Bash(find:*)", "Bash(grep:*)", "Bash(cat:*)", "Bash(ls:*)",
+      "Bash(tree:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)",
+      "Bash(diff:*)", "Bash(jq:*)", "Bash(yq:*)",
+      // Build tools
+      "Bash(mvn test*)", "Bash(./mvnw verify*)",
+      "Bash(./gradlew test*)", "Bash(npm:*)", "Bash(cargo test:*)",
+      // Git solo-lectura
+      "Bash(git status:*)", "Bash(git log:*)", "Bash(git diff:*)",
+      // Git escritura controlada
+      "Bash(git add:*)", "Bash(git pull:*)", "Bash(git stash:*)",
+      // GitHub CLI solo-lectura
+      "Bash(gh pr view:*)", "Bash(gh issue view:*)"
     ],
     "deny": [
-      "Bash(git commit*)",
-      "Bash(git push*)",
-      "Bash(rm -rf*)",
-      "Write(.env*)"
+      "Bash(sudo:*)", "Bash(rm -rf .git:*)", "Bash(rm .env:*)",
+      "Bash(bash -c:*)", "Bash(eval:*)", "Bash(node -e:*)",
+      "Bash(nc:*)", "Bash(curl * | bash:*)",
+      "Bash(git push --force:*)", "Bash(git reset --hard:*)",
+      "Bash(mvn *deploy*:*)", "Bash(docker push:*)",
+      "Read(**/.env)", "Read(~/.ssh/**)", "Read(~/.aws/**)"
+    ],
+    "ask": [
+      "Bash(curl:*)", "Bash(rm:*)",
+      "Bash(npm install:*)", "Bash(pip install:*)",
+      "Bash(git commit:*)", "Bash(git push:*)",
+      "Bash(docker run:*)", "Bash(docker build:*)"
     ]
   }
 }</code></pre>
+        <pre data-lang="en"><code class="language-json">{
+  "permissions": {
+    "allow": [
+      "Read(**)", "Write(src/**)",
+      // Shell read-only
+      "Bash(find:*)", "Bash(grep:*)", "Bash(cat:*)", "Bash(ls:*)",
+      "Bash(tree:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)",
+      "Bash(diff:*)", "Bash(jq:*)", "Bash(yq:*)",
+      // Build tools
+      "Bash(mvn test*)", "Bash(./mvnw verify*)",
+      "Bash(./gradlew test*)", "Bash(npm:*)", "Bash(cargo test:*)",
+      // Git read-only
+      "Bash(git status:*)", "Bash(git log:*)", "Bash(git diff:*)",
+      // Git controlled write
+      "Bash(git add:*)", "Bash(git pull:*)", "Bash(git stash:*)",
+      // GitHub CLI read-only
+      "Bash(gh pr view:*)", "Bash(gh issue view:*)"
+    ],
+    "deny": [
+      "Bash(sudo:*)", "Bash(rm -rf .git:*)", "Bash(rm .env:*)",
+      "Bash(bash -c:*)", "Bash(eval:*)", "Bash(node -e:*)",
+      "Bash(nc:*)", "Bash(curl * | bash:*)",
+      "Bash(git push --force:*)", "Bash(git reset --hard:*)",
+      "Bash(mvn *deploy*:*)", "Bash(docker push:*)",
+      "Read(**/.env)", "Read(~/.ssh/**)", "Read(~/.aws/**)"
+    ],
+    "ask": [
+      "Bash(curl:*)", "Bash(rm:*)",
+      "Bash(npm install:*)", "Bash(pip install:*)",
+      "Bash(git commit:*)", "Bash(git push:*)",
+      "Bash(docker run:*)", "Bash(docker build:*)"
+    ]
+  }
+}</code></pre>
+      </div>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:8px"><span data-lang="es">📁 Allowlist completa en <code style="font-family:var(--font-mono);font-size:11px">examples/templates/.claude/settings.json</code></span><span data-lang="en">📁 Full allowlist in <code style="font-family:var(--font-mono);font-size:11px">examples/templates/.claude/settings.json</code></span></p>
     </div>
   </div>
 </section>
@@ -1238,10 +1414,10 @@ Package structure:
         <thead>
           <tr>
             <th><span data-lang="es">Concepto</span><span data-lang="en">Concept</span></th>
-            <th>GitHub Copilot</th>
-            <th>Claude Code</th>
-            <th>Gemini CLI</th>
-            <th>Codex CLI</th>
+            <th style="color:var(--blue)">GitHub Copilot</th>
+            <th style="color:var(--accent)">Claude Code</th>
+            <th style="color:var(--yellow)">Gemini CLI</th>
+            <th style="color:var(--purple)">Codex CLI</th>
           </tr>
         </thead>
         <tbody>
@@ -1255,23 +1431,38 @@ Package structure:
           <tr>
             <td style="color:var(--text-muted)"><span data-lang="es">Contexto por directorio</span><span data-lang="en">Directory context</span></td>
             <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">*.instructions.md</code></td>
-            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">CLAUDE.md (en subdir)</code></td>
-            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--yellow)">GEMINI.md (en subdir)</code></td>
-            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">AGENTS.md (en subdir)</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">CLAUDE.md (subdir)</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--yellow)">GEMINI.md (subdir)</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">AGENTS.md (subdir)</code></td>
           </tr>
           <tr>
             <td style="color:var(--text-muted)"><span data-lang="es">Permisos/Seguridad</span><span data-lang="en">Permissions/Security</span></td>
-            <td style="color:var(--text-muted)">— (vía instrucciones)</td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">copilot-setup-steps.yml</code><br><span style="font-size:10px;color:var(--text-muted)">+ org firewall</span></td>
             <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">.claude/settings.json</code></td>
             <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--yellow)">.gemini/settings.json</code></td>
             <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">.codex/config.toml</code></td>
           </tr>
           <tr>
-            <td style="color:var(--text-muted)">Skills</td>
-            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">*.instructions.md por tarea</code></td>
-            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">.claude/skills/*.sh</code></td>
-            <td style="color:var(--text-muted)">—</td>
-            <td style="color:var(--text-muted)">—</td>
+            <td style="color:var(--text-muted)"><span data-lang="es">Skills (canónico)</span><span data-lang="en">Skills (canonical)</span></td>
+            <td colspan="4"><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">docs/ai/skills/*/SKILL.md</code></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted)"><span data-lang="es">Skills (discovery)</span><span data-lang="en">Skills (discovery)</span></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">.agents/skills/*</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">.claude/skills/*</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--yellow)">.agents/skills/*</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">.agents/skills/*</code></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted)">Subagents</td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">.github/agents/*.md</code></td>
+            <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">.claude/agents/*.md</code></td>
+            <td style="font-size:12px;color:var(--text-muted)">experimental</td>
+            <td style="font-size:12px;color:var(--text-muted)">experimental</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted)">Personas <span style="font-size:10px;opacity:0.6">(tool-agnostic)</span></td>
+            <td colspan="4"><code style="font-family:var(--font-mono);font-size:11px;color:var(--purple)">docs/ai/personas/*.agent.md</code></td>
           </tr>
         </tbody>
       </table>
@@ -1279,23 +1470,27 @@ Package structure:
   </div>
 
   <div class="quote-block animate delay-3">
-    <span data-lang="es">"AGENTS.md es el archivo más portable — funciona como base en todos los agentes. Es el equivalente al README.md, pero para agentes."</span><span data-lang="en">"AGENTS.md is the most portable file — it works as a base for all agents. It's the equivalent of README.md, but for agents."</span>
+    <span data-lang="es">"Patrón Pointer: <code style="font-family:var(--font-mono);font-size:12px">AGENTS.md</code> como fuente única de verdad. Los archivos específicos de cada agente (<code style="font-family:var(--font-mono);font-size:12px">.github/copilot-instructions.md</code>, <code style="font-family:var(--font-mono);font-size:12px">CLAUDE.md</code>, <code style="font-family:var(--font-mono);font-size:12px">GEMINI.md</code>) son thin proxies que apuntan al manifiesto central. Cursor también lee <code style="font-family:var(--font-mono);font-size:12px">AGENTS.md</code> nativamente y usa <code style="font-family:var(--font-mono);font-size:12px">.cursor/rules/</code> como entry point propio."</span><span data-lang="en">"Pointer Pattern: <code style="font-family:var(--font-mono);font-size:12px">AGENTS.md</code> as single source of truth. Agent-specific files (<code style="font-family:var(--font-mono);font-size:12px">.github/copilot-instructions.md</code>, <code style="font-family:var(--font-mono);font-size:12px">CLAUDE.md</code>, <code style="font-family:var(--font-mono);font-size:12px">GEMINI.md</code>) are thin proxies that point to the central manifest. Cursor also reads <code style="font-family:var(--font-mono);font-size:12px">AGENTS.md</code> natively and uses <code style="font-family:var(--font-mono);font-size:12px">.cursor/rules/</code> as its own entry point."</span>
+  </div>
+
+  <div class="animate delay-3" style="margin-top:16px;padding:12px 16px;border-left:3px solid var(--orange);background:var(--orange-dim);border-radius:var(--radius-sm)">
+    <p style="font-size:12px;color:var(--text-muted);line-height:1.6"><span data-lang="es"><strong style="color:var(--orange)">Cursor</strong> — No aparece como columna en esta tabla porque es un IDE (no CLI), pero su file map es análogo: <code style="font-family:var(--font-mono);font-size:11px">.cursor/rules/*.mdc</code> (contexto principal), <code style="font-family:var(--font-mono);font-size:11px">.cursor/agents/*.md</code> (subagentes), <code style="font-family:var(--font-mono);font-size:11px">.cursor/skills/</code> (skills). Lee <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> nativamente.</span><span data-lang="en"><strong style="color:var(--orange)">Cursor</strong> — Not shown as a column here because it's an IDE (not CLI), but its file map is analogous: <code style="font-family:var(--font-mono);font-size:11px">.cursor/rules/*.mdc</code> (main context), <code style="font-family:var(--font-mono);font-size:11px">.cursor/agents/*.md</code> (subagents), <code style="font-family:var(--font-mono);font-size:11px">.cursor/skills/</code> (skills). Reads <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> natively.</span></p>
   </div>
 
   <div class="animate delay-4" style="margin-top:32px">
-    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)"><span data-lang="es">Primer paso concreto para equipos con Copilot</span><span data-lang="en">Concrete first step for teams using Copilot</span></h3>
+    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)"><span data-lang="es">Primeros 3 pasos para cualquier equipo</span><span data-lang="en">First 3 steps for any team</span></h3>
     <div class="grid-3">
       <div class="card">
-        <div class="card-title" style="color:var(--blue)"><span data-lang="es">1. Contexto Copilot</span><span data-lang="en">1. Copilot Context</span></div>
-        <p><span data-lang="es">Crear <code style="font-family:var(--font-mono);font-size:11px">.github/copilot-instructions.md</code> con el contexto de arquitectura.</span><span data-lang="en">Create <code style="font-family:var(--font-mono);font-size:11px">.github/copilot-instructions.md</code> with the architecture context.</span></p>
+        <div class="card-title" style="color:var(--accent)">1. AGENTS.md</div>
+        <p><span data-lang="es">Crear <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> en la raíz con stack, arquitectura y convenciones. Es el manifiesto maestro.</span><span data-lang="en">Create <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> at root with stack, architecture and conventions. This is the master manifest.</span></p>
       </div>
       <div class="card">
-        <div class="card-title" style="color:var(--accent)">2. AGENTS.md</div>
-        <p><span data-lang="es">Crear <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> con el mismo contenido para portabilidad.</span><span data-lang="en">Create <code style="font-family:var(--font-mono);font-size:11px">AGENTS.md</code> with the same content for portability.</span></p>
+        <div class="card-title" style="color:var(--blue)"><span data-lang="es">2. Entry points</span><span data-lang="en">2. Entry points</span></div>
+        <p><span data-lang="es">Crear thin proxies para tus agentes: <code style="font-family:var(--font-mono);font-size:11px">.github/copilot-instructions.md</code>, <code style="font-family:var(--font-mono);font-size:11px">CLAUDE.md</code>, etc. — que apunten a AGENTS.md.</span><span data-lang="en">Create thin proxies for your agents: <code style="font-family:var(--font-mono);font-size:11px">.github/copilot-instructions.md</code>, <code style="font-family:var(--font-mono);font-size:11px">CLAUDE.md</code>, etc. — pointing to AGENTS.md.</span></p>
       </div>
       <div class="card">
-        <div class="card-title" style="color:var(--yellow)"><span data-lang="es">3. Glosario</span><span data-lang="en">3. Glossary</span></div>
-        <p><span data-lang="es">Añadir <code style="font-family:var(--font-mono);font-size:11px">docs/context/DOMAIN.md</code> con el glosario de negocio.</span><span data-lang="en">Add <code style="font-family:var(--font-mono);font-size:11px">docs/context/DOMAIN.md</code> with the business glossary.</span></p>
+        <div class="card-title" style="color:var(--yellow)"><span data-lang="es">3. Contexto</span><span data-lang="en">3. Context</span></div>
+        <p><span data-lang="es">Añadir <code style="font-family:var(--font-mono);font-size:11px">docs/context/DOMAIN.md</code> y <code style="font-family:var(--font-mono);font-size:11px">docs/ai/instructions/</code> con reglas atómicas por responsabilidad.</span><span data-lang="en">Add <code style="font-family:var(--font-mono);font-size:11px">docs/context/DOMAIN.md</code> and <code style="font-family:var(--font-mono);font-size:11px">docs/ai/instructions/</code> with atomic rules per concern.</span></p>
       </div>
     </div>
   </div>
@@ -1308,14 +1503,14 @@ Package structure:
   <div class="section-num">05</div>
   <div class="section-badge animate">⏱ 7 min</div>
   <h2 class="section-title animate delay-1">MCP</h2>
-  <p class="section-sub animate delay-2"><span data-lang="es">Model Context Protocol — el estándar abierto de Anthropic para conectar agentes con herramientas externas.</span><span data-lang="en">Model Context Protocol — the USB-C of agents</span></p>
+  <p class="section-sub animate delay-2"><span data-lang="es">Model Context Protocol — estándar abierto bajo la Linux Foundation (AAIF) para conectar agentes con herramientas externas.</span><span data-lang="en">Model Context Protocol — open standard under the Linux Foundation (AAIF) for connecting agents with external tools.</span></p>
 
   <div class="animate delay-2" style="margin-bottom:24px">
     <div class="mcp-badge"><span data-lang="es">USB-C de los agentes — un protocolo común para hablar con cualquier herramienta</span><span data-lang="en">USB-C of agents — a common protocol to talk to any tool</span></div>
   </div>
 
   <div class="quote-block animate delay-2">
-    <span data-lang="es">"El 'USB-C de los agentes' — un protocolo común que permite que cualquier agente hable con cualquier herramienta."</span><span data-lang="en">"MCP is the open standard created by Anthropic in 2024 and adopted by the entire industry (OpenAI, Google, Microsoft, JetBrains) to connect agents with external tools."</span>
+    <span data-lang="es">"Estándar abierto creado por Anthropic en 2024 y adoptado por toda la industria (OpenAI, Google, Microsoft, JetBrains) para conectar agentes con herramientas externas."</span><span data-lang="en">"Open standard created by Anthropic in 2024 and adopted by the entire industry (OpenAI, Google, Microsoft, JetBrains) to connect agents with external tools."</span>
   </div>
 
   <div class="grid-2 animate delay-3" style="margin:32px 0">
@@ -1328,7 +1523,7 @@ Package structure:
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-jira"],
       "env": {
-        "JIRA_HOST": "https://tu-empresa.atlassian.net",
+        "JIRA_HOST": "https://acme.atlassian.net",
         "JIRA_EMAIL": "${JIRA_EMAIL}",
         "JIRA_TOKEN": "${JIRA_API_TOKEN}"
       }
@@ -1344,7 +1539,7 @@ Package structure:
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-confluence"],
       "env": {
-        "CONFLUENCE_HOST": "https://tu-empresa.atlassian.net/wiki",
+        "CONFLUENCE_HOST": "https://acme.atlassian.net/wiki",
         "CONFLUENCE_TOKEN": "${CONFLUENCE_TOKEN}"
       }
     }
@@ -1369,10 +1564,10 @@ Package structure:
   </div>
 
   <div class="animate delay-4">
-    <div class="card" style="border-color:rgba(251,191,36,0.3)">
+    <div class="card" style="border-color:rgba(245,197,66,0.3)">
       <div class="card-title" style="color:var(--yellow)"><span data-lang="es">Seguridad &amp; Estado</span><span data-lang="en">Security &amp; State</span></div>
       <p><span data-lang="es">Los tokens siempre como variables de entorno — <strong>nunca hardcodeados.</strong></span><span data-lang="en">Tokens always as environment variables — <strong>never hardcoded.</strong></span></p>
-      <p style="margin-top:8px"><span data-lang="es">Copilot + MCP disponible en preview en VS Code. En GitHub Enterprise GA desde principios de 2025.</span><span data-lang="en">Copilot + MCP available in preview in VS Code. In GitHub Enterprise it's GA since early 2025.</span></p>
+      <p style="margin-top:8px"><span data-lang="es">MCP soportado en VS Code, JetBrains, Xcode, Eclipse. El MCP Registry está en public preview. Gobernanza: AAIF (Linux Foundation) desde dic 2025.</span><span data-lang="en">MCP supported in VS Code, JetBrains, Xcode, Eclipse. The MCP Registry is in public preview. Governance: AAIF (Linux Foundation) since Dec 2025.</span></p>
     </div>
   </div>
 </section>
@@ -1382,31 +1577,301 @@ Package structure:
 <!-- ======================================================= -->
 <section id="s6">
   <div class="section-num">06</div>
-  <div class="section-badge animate">⏱ 5 min</div>
-  <h2 class="section-title animate delay-1"><span data-lang="es">Multi-Agente y Gestión del Contexto</span><span data-lang="en">Multi-Agent and Context Management</span></h2>
-  <p class="section-sub animate delay-2"><span data-lang="es">Tres niveles de complejidad. Empieza por el primero.</span><span data-lang="en">Three levels of complexity. Start with the first.</span></p>
+  <div class="section-badge animate">⏱ 15 min</div>
+  <h2 class="section-title animate delay-1"><span data-lang="es">Multi-Agente y Orquestación</span><span data-lang="en">Multi-Agent and Orchestration</span></h2>
+  <p class="section-sub animate delay-2"><span data-lang="es">Subagentes, skills, equipos y patrones de orquestación.</span><span data-lang="en">Subagents, skills, teams and orchestration patterns.</span></p>
 
   <div class="grid-3 animate delay-2" style="margin-bottom:32px">
     <div class="level-card level-1">
-      <div class="level-badge">Nivel 1</div>
+      <div class="level-badge"><span data-lang="es">Nivel 1</span><span data-lang="en">Level 1</span></div>
       <div class="level-title">Single Agent</div>
       <div style="font-family:var(--font-mono);font-size:10px;color:var(--accent);margin-bottom:8px"><span data-lang="es">← Empezad aquí</span><span data-lang="en">← Start here</span></div>
       <div class="level-desc"><span data-lang="es">Un agente, una tarea, revisión humana entre pasos. <strong style="color:var(--accent)">El 80% del valor está en este nivel.</strong></span><span data-lang="en">One agent, one task, human review between steps. <strong style="color:var(--accent)">80% of the value is at this level.</strong></span></div>
     </div>
     <div class="level-card level-2">
-      <div class="level-badge">Nivel 2</div>
+      <div class="level-badge"><span data-lang="es">Nivel 2</span><span data-lang="en">Level 2</span></div>
       <div class="level-title">Orchestrator + Specialists</div>
       <div style="font-family:var(--font-mono);font-size:10px;color:var(--yellow);margin-bottom:8px"><span data-lang="es">Avanzado</span><span data-lang="en">Advanced</span></div>
       <div class="level-desc"><span data-lang="es">Un agente orquestador recibe el objetivo y delega a agentes especializados.</span><span data-lang="en">An orchestrator agent receives the objective and delegates to specialized agents.</span></div>
     </div>
     <div class="level-card level-3">
-      <div class="level-badge">Nivel 3</div>
+      <div class="level-badge"><span data-lang="es">Nivel 3</span><span data-lang="en">Level 3</span></div>
       <div class="level-title">Parallel Agents</div>
       <div style="font-family:var(--font-mono);font-size:10px;color:var(--red);margin-bottom:8px"><span data-lang="es">Solo senior+</span><span data-lang="en">Senior+ only</span></div>
       <div class="level-desc"><span data-lang="es">Múltiples agentes en paralelo. Potente pero complejo de coordinar.</span><span data-lang="en">Multiple agents in parallel. Powerful but complex to coordinate.</span></div>
     </div>
   </div>
 
+  <!-- ===== A) SUBAGENTES ===== -->
+  <div class="animate delay-3" style="margin-bottom:40px">
+    <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--accent)"><span data-lang="es">A · Subagentes</span><span data-lang="en">A · Subagents</span></h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px"><span data-lang="es">Instancias especializadas que el agente principal lanza para tareas concretas. Cada herramienta los implementa de forma diferente, pero el concepto es el mismo.</span><span data-lang="en">Specialized instances launched by the main agent for specific tasks. Each tool implements them differently, but the concept is the same.</span></p>
+
+    <div style="margin-bottom:20px">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th style="color:var(--accent)">Claude Code</th>
+              <th style="color:var(--blue)">GitHub Copilot</th>
+              <th style="color:var(--yellow)">Gemini CLI</th>
+              <th style="color:var(--orange)">Cursor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--text-muted)"><span data-lang="es">Definición</span><span data-lang="en">Definition</span></td>
+              <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--accent)">.claude/agents/*.md</code></td>
+              <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">.github/agents/*.md</code></td>
+              <td><span style="font-size:12px;color:var(--text-muted)">Markdown + YAML <span class="badge badge-yellow" style="font-size:9px">experimental</span></span></td>
+              <td><code style="font-family:var(--font-mono);font-size:11px;color:var(--orange)">.cursor/agents/*.md</code></td>
+            </tr>
+            <tr>
+              <td style="color:var(--text-muted)">Built-in</td>
+              <td style="font-size:12px">Explore, Plan, General-purpose</td>
+              <td style="font-size:12px">Explore, Task, Code Review</td>
+              <td style="font-size:12px">—</td>
+              <td style="font-size:12px"><span data-lang="es">Research, Terminal, Parallel</span><span data-lang="en">Research, Terminal, Parallel</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--text-muted)">Custom</td>
+              <td class="check-yes">&#10003;</td>
+              <td class="check-yes">&#10003;</td>
+              <td class="check-yes">&#10003; <span class="badge badge-yellow" style="font-size:9px">experimental</span></td>
+              <td class="check-yes">&#10003; <span style="font-size:10px;color:var(--text-muted)">v2.4+</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="code-block">
+        <div class="code-block-header"><span data-lang="es">Ejemplo: subagente custom (.claude/agents/ o .github/agents/)</span><span data-lang="en">Example: custom subagent (.claude/agents/ or .github/agents/)</span></div>
+        <pre><code class="language-markdown">---
+name: code-reviewer
+description: Reviews code for quality and patterns
+tools:
+  - Read
+  - Grep
+  - Glob
+model: sonnet
+---
+
+# Code Reviewer Agent
+
+Review code changes for:
+1. Architecture compliance
+2. Code quality and duplication
+3. Security vulnerabilities
+4. Test coverage</code></pre>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card">
+          <div class="card-title"><span data-lang="es">Debugger</span><span data-lang="en">Debugger</span></div>
+          <p style="font-family:var(--font-mono);font-size:11px"><span data-lang="es">Subagente que investiga errores: lee logs, reproduce el bug, propone fix con test.</span><span data-lang="en">Subagent that investigates errors: reads logs, reproduces the bug, proposes fix with test.</span></p>
+        </div>
+        <div class="card">
+          <div class="card-title"><span data-lang="es">Docs Writer</span><span data-lang="en">Docs Writer</span></div>
+          <p style="font-family:var(--font-mono);font-size:11px"><span data-lang="es">Subagente que genera y mantiene documentación técnica sincronizada con el código.</span><span data-lang="en">Subagent that generates and maintains technical documentation in sync with the code.</span></p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--text-muted)"><span data-lang="es">Frontmatter válido</span><span data-lang="en">Valid frontmatter</span></div>
+          <p style="font-family:var(--font-mono);font-size:10px"><code>name</code> · <code>description</code> · <code>tools</code> · <code>model</code> · <code>maxTurns</code> · <code>permissionMode</code> · <code>skills</code> · <code>mcpServers</code></p>
+        </div>
+        <div class="card" style="border-color:rgba(0,232,125,0.2)">
+          <div class="card-title" style="color:var(--accent)">Hooks <span style="font-size:10px;color:var(--text-muted)">(Claude Code)</span></div>
+          <p style="font-family:var(--font-mono);font-size:10px"><span data-lang="es">Eventos de ciclo de vida deterministas en <code>settings.json</code>: <code>PreToolUse</code> · <code>PostToolUse</code> · <code>Stop</code>. Garantizan reglas de seguridad y formateo sin depender del prompt.</span><span data-lang="en">Deterministic lifecycle events in <code>settings.json</code>: <code>PreToolUse</code> · <code>PostToolUse</code> · <code>Stop</code>. Enforce security rules and formatting without relying on the prompt.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== B) SKILLS SYSTEM ===== -->
+  <div class="animate delay-3" style="margin-bottom:40px">
+    <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--accent)"><span data-lang="es">B · Sistema de Skills</span><span data-lang="en">B · Skills System</span></h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px"><span data-lang="es">Tareas reutilizables definidas como <code>SKILL.md</code>. Formato abierto y portable — soportado por Claude Code, Copilot, Gemini CLI, Codex CLI y Cursor.</span><span data-lang="en">Reusable tasks defined as <code>SKILL.md</code>. Open and portable format — supported by Claude Code, Copilot, Gemini CLI, Codex CLI and Cursor.</span></p>
+
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="code-block">
+        <div class="code-block-header"><span data-lang="es">SKILL.md — formato portable</span><span data-lang="en">SKILL.md — portable format</span></div>
+        <pre><code class="language-markdown">---
+name: create-pr
+description: Creates a PR with conventional format
+agent: code-reviewer
+---
+
+# Create Pull Request
+
+## Steps
+1. Run `git diff main...HEAD`
+2. Categorize changes (feature, fix, refactor)
+3. Generate conventional commit title
+4. Create PR with `gh pr create`</code></pre>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card">
+          <div class="card-title" style="color:var(--blue)"><span data-lang="es">Dónde viven</span><span data-lang="en">Where they live</span></div>
+          <p style="font-family:var(--font-mono);font-size:11px;line-height:1.6">
+            <span data-lang="es" style="color:var(--text-muted)">Canónico:</span><span data-lang="en" style="color:var(--text-muted)">Canonical:</span> docs/ai/skills/name/SKILL.md<br>
+            <span style="color:var(--text-muted)">Discovery:</span><br>
+            &nbsp;&nbsp;<span style="color:var(--accent)">Claude:</span> .claude/skills/name/<br>
+            &nbsp;&nbsp;<span style="color:var(--orange)">Cursor:</span> .cursor/skills/name/<br>
+            &nbsp;&nbsp;<span style="color:var(--blue)">Copilot + <span style="color:var(--yellow)">Gemini</span> + <span style="color:var(--purple)">Codex:</span></span> .agents/skills/name/
+          </p>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:4px"><span data-lang="es">Centraliza en <code style="font-family:var(--font-mono)">docs/ai/skills/</code> y usa symlinks para discovery nativo.</span><span data-lang="en">Centralize in <code style="font-family:var(--font-mono)">docs/ai/skills/</code> and use symlinks for native discovery.</span></p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--yellow)"><span data-lang="es">Invocación</span><span data-lang="en">Invocation</span></div>
+          <p><span data-lang="es"><strong>Manual:</strong> <code style="font-family:var(--font-mono);font-size:11px">/create-pr</code> en el chat del agente. <strong>Automática:</strong> el agente decide basándose en la descripción del frontmatter.</span><span data-lang="en"><strong>Manual:</strong> <code style="font-family:var(--font-mono);font-size:11px">/create-pr</code> in the agent chat. <strong>Automatic:</strong> the agent decides based on the frontmatter description.</span></p>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color:var(--purple)"><span data-lang="es">Composición</span><span data-lang="en">Composition</span></div>
+          <p><span data-lang="es">El campo <code style="font-family:var(--font-mono);font-size:11px">agent:</code> encadena un subagente tras el skill. Cada skill puede incluir scripts, templates y archivos de soporte en su directorio.</span><span data-lang="en">The <code style="font-family:var(--font-mono);font-size:11px">agent:</code> field chains a subagent after the skill. Each skill can include scripts, templates and support files in its directory.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== C) AGENT TEAMS ===== -->
+  <div class="animate delay-3" style="margin-bottom:40px">
+    <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--yellow)"><span data-lang="es">C · Agent Teams</span><span data-lang="en">C · Agent Teams</span> <span class="badge badge-yellow" style="font-size:9px;vertical-align:middle">experimental</span></h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px"><span data-lang="es">Múltiples instancias del agente ejecutándose en paralelo, coordinadas por un orquestador o de forma independiente. Disponible en Claude Code (experimental) y como patrón general.</span><span data-lang="en">Multiple agent instances running in parallel, coordinated by an orchestrator or independently. Available in Claude Code (experimental) and as a general pattern.</span></p>
+
+    <div style="margin-bottom:20px">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Subagents</th>
+              <th>Agent Teams</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--text-muted)"><span data-lang="es">Instancias</span><span data-lang="en">Instances</span></td>
+              <td><span data-lang="es">Dentro del mismo proceso</span><span data-lang="en">Within the same process</span></td>
+              <td><span data-lang="es">Procesos independientes</span><span data-lang="en">Independent processes</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--text-muted)"><span data-lang="es">Contexto</span><span data-lang="en">Context</span></td>
+              <td><span data-lang="es">Comparten contexto padre</span><span data-lang="en">Share parent context</span></td>
+              <td><span data-lang="es">Contexto aislado por instancia</span><span data-lang="en">Isolated context per instance</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--text-muted)"><span data-lang="es">Coordinación</span><span data-lang="en">Coordination</span></td>
+              <td><span data-lang="es">El agente padre orquesta</span><span data-lang="en">Parent agent orchestrates</span></td>
+              <td><span data-lang="es">Git como mecanismo de sync</span><span data-lang="en">Git as sync mechanism</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--text-muted)"><span data-lang="es">Caso de uso</span><span data-lang="en">Use case</span></td>
+              <td><span data-lang="es">Tareas especializadas dentro de un flujo</span><span data-lang="en">Specialized tasks within a flow</span></td>
+              <td><span data-lang="es">Trabajo paralelo en módulos independientes</span><span data-lang="en">Parallel work on independent modules</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)"><span data-lang="es">Investigación paralela</span><span data-lang="en">Parallel research</span></div>
+        <p><span data-lang="es">3 agentes investigan simultáneamente: uno lee docs, otro analiza código existente, otro busca en internet.</span><span data-lang="en">3 agents research simultaneously: one reads docs, another analyzes existing code, another searches the web.</span></p>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--accent)"><span data-lang="es">Multi-módulo</span><span data-lang="en">Multi-module</span></div>
+        <p><span data-lang="es">Cada agente trabaja en un módulo distinto del monorepo. Git worktrees evitan conflictos de archivos.</span><span data-lang="en">Each agent works on a different monorepo module. Git worktrees prevent file conflicts.</span></p>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--yellow)"><span data-lang="es">Hipótesis competitivas</span><span data-lang="en">Competing hypotheses</span></div>
+        <p><span data-lang="es">Dos agentes proponen soluciones diferentes al mismo problema. El humano elige la mejor.</span><span data-lang="en">Two agents propose different solutions to the same problem. The human picks the best one.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== D) PATRONES DE ORQUESTACIÓN ===== -->
+  <div class="animate delay-3" style="margin-bottom:40px">
+    <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--accent)"><span data-lang="es">D · Patrones de Orquestación</span><span data-lang="en">D · Orchestration Patterns</span></h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px"><span data-lang="es">Tres patrones comunes para coordinar múltiples agentes.</span><span data-lang="en">Three common patterns for coordinating multiple agents.</span></p>
+
+    <div class="grid-3">
+      <div class="level-card level-1">
+        <div class="level-badge"><span data-lang="es">Patrón 1</span><span data-lang="en">Pattern 1</span></div>
+        <div class="level-title">Orchestrator + Workers</div>
+        <div class="level-desc"><span data-lang="es">Un agente principal descompone la tarea y delega subtareas a workers especializados. Recoge y consolida los resultados.</span><span data-lang="en">A main agent breaks down the task and delegates subtasks to specialized workers. Collects and consolidates results.</span></div>
+        <div style="margin-top:12px;font-family:var(--font-mono);font-size:10px;color:var(--accent)"><span data-lang="es">Ejemplo: implementar feature completa</span><span data-lang="en">Example: implement complete feature</span></div>
+      </div>
+      <div class="level-card level-2">
+        <div class="level-badge"><span data-lang="es">Patrón 2</span><span data-lang="en">Pattern 2</span></div>
+        <div class="level-title">DAG</div>
+        <div class="level-desc"><span data-lang="es">Grafo dirigido acíclico de tareas con dependencias. Cada nodo se ejecuta cuando sus dependencias terminan.</span><span data-lang="en">Directed acyclic graph of tasks with dependencies. Each node executes when its dependencies complete.</span></div>
+        <div style="margin-top:12px;font-family:var(--font-mono);font-size:10px;color:var(--yellow)"><span data-lang="es">Ejemplo: pipeline CI con fases</span><span data-lang="en">Example: CI pipeline with phases</span></div>
+      </div>
+      <div class="level-card level-3">
+        <div class="level-badge"><span data-lang="es">Patrón 3</span><span data-lang="en">Pattern 3</span></div>
+        <div class="level-title"><span data-lang="es">Hipótesis Competitivas</span><span data-lang="en">Competing Hypotheses</span></div>
+        <div class="level-desc"><span data-lang="es">Múltiples agentes atacan el mismo problema con estrategias distintas. Se comparan resultados y se elige el mejor.</span><span data-lang="en">Multiple agents attack the same problem with different strategies. Results are compared and the best one is chosen.</span></div>
+        <div style="margin-top:12px;font-family:var(--font-mono);font-size:10px;color:var(--red)"><span data-lang="es">Ejemplo: debugging complejo</span><span data-lang="en">Example: complex debugging</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== E) ARQUITECTURA MULTI-HERRAMIENTA ===== -->
+  <div class="animate delay-3" style="margin-bottom:40px">
+    <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--purple)"><span data-lang="es">E · Arquitectura de Documentación Multi-Herramienta</span><span data-lang="en">E · Multi-Tool Documentation Architecture</span></h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px"><span data-lang="es">Una estructura de documentación que funciona con cualquier agente, no atada a una herramienta específica.</span><span data-lang="en">A documentation structure that works with any agent, not tied to a specific tool.</span></p>
+
+    <div class="grid-2" style="margin-bottom:20px">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--purple);margin-bottom:12px"><span data-lang="es">Cuatro pilares</span><span data-lang="en">Four pillars</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card">
+            <div class="card-title" style="color:var(--accent)">Instructions</div>
+            <p><span data-lang="es">Reglas atómicas por contexto: backend, testing, frontend. Archivo por responsabilidad.</span><span data-lang="en">Atomic rules per context: backend, testing, frontend. One file per responsibility.</span></p>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color:var(--blue)">Skills</div>
+            <p><span data-lang="es">Tareas reutilizables en formato SKILL.md. Cada agente las lee de <code style="font-family:var(--font-mono);font-size:11px">.&lt;agent&gt;/skills/</code> — mismo contenido, diferente ruta.</span><span data-lang="en">Reusable tasks in SKILL.md format. Each agent reads them from <code style="font-family:var(--font-mono);font-size:11px">.&lt;agent&gt;/skills/</code> — same content, different path.</span></p>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color:var(--yellow)">Personas</div>
+            <p><span data-lang="es">Perfiles de agente especializados: reviewer, architect, DBA. Definen expertise y criterios.</span><span data-lang="en">Specialized agent profiles: reviewer, architect, DBA. Define expertise and criteria.</span></p>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color:var(--purple)">Prompts</div>
+            <p><span data-lang="es">Templates reutilizables para operaciones comunes: generar tests, escribir ADR, analizar performance.</span><span data-lang="en">Reusable templates for common operations: generate tests, write ADR, analyze performance.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header"><span data-lang="es">Estructura de directorio recomendada</span><span data-lang="en">Recommended directory structure</span></div>
+        <pre><code class="language-plaintext">docs/ai/                          ← <span data-lang="es">conocimiento centralizado</span><span data-lang="en">centralized knowledge</span>
+├── instructions/
+│   ├── backend.md
+│   └── testing.md
+├── skills/
+│   └── create-pr/
+│       ├── SKILL.md
+│       └── prepare-pr-readiness.sh
+├── personas/
+│   └── pr-reviewer.agent.md
+└── prompts/
+    └── generate-tests.prompt.md
+
+<span data-lang="es">symlinks para discovery nativo:</span><span data-lang="en">symlinks for native discovery:</span>
+.agents/skills/ → docs/ai/skills/ <span data-lang="es">(Copilot+Gemini+Codex)</span><span data-lang="en">(Copilot+Gemini+Codex)</span>
+.claude/skills/ → docs/ai/skills/ <span data-lang="es">(Claude Code)</span><span data-lang="en">(Claude Code)</span></code></pre>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <span data-lang="es">"Tool-agnostic by design — la misma estructura de docs funciona con Claude Code, Copilot, Gemini CLI y cualquier agente futuro."</span><span data-lang="en">"Tool-agnostic by design — the same docs structure works with Claude Code, Copilot, Gemini CLI and any future agent."</span>
+    </div>
+  </div>
+
+  <!-- ===== SESSION MANAGEMENT (existing) ===== -->
   <div class="animate delay-3" style="margin-bottom:32px">
     <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:16px"><span data-lang="es">¿Cuándo empezar sesión nueva?</span><span data-lang="en">When to start a new session</span></h3>
     <div class="grid-2">
@@ -1509,13 +1974,13 @@ Technical constraints:
     <div class="card">
       <p><span data-lang="es">El agente ejecuta los tests en cada paso. Si fallan, los corrige solo. Intervención solo si el fallo es conceptual.</span><span data-lang="en">The agent runs tests at each step. If they fail, it fixes them on its own. Intervention only if the failure is conceptual.</span></p>
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px">
-        <span class="badge badge-accent">dominio</span>
+        <span class="badge badge-accent"><span data-lang="es">dominio</span><span data-lang="en">domain</span></span>
         <span style="color:var(--text-muted)">→ tests</span>
         <span class="badge badge-blue">use case</span>
         <span style="color:var(--text-muted)">→ tests</span>
-        <span class="badge badge-yellow">adaptador</span>
+        <span class="badge badge-yellow"><span data-lang="es">adaptador</span><span data-lang="en">adapter</span></span>
         <span style="color:var(--text-muted)">→ tests</span>
-        <span class="badge badge-purple">integración</span>
+        <span class="badge badge-purple"><span data-lang="es">integración</span><span data-lang="en">integration</span></span>
       </div>
     </div>
   </div>
@@ -1571,31 +2036,32 @@ Technical constraints:
     </div>
   </div>
 
-  <!-- Fase 5 — DORA Metrics -->
+  <!-- Fase 5 — Industry Metrics -->
   <div class="animate delay-4">
-    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--purple)"><span data-lang="es">Fase 5 — Métricas DORA</span><span data-lang="en">Phase 5 — DORA Metrics</span></h3>
+    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--purple)"><span data-lang="es">Fase 5 — Métricas de la Industria</span><span data-lang="en">Phase 5 — Industry Metrics</span></h3>
     <div class="grid-4">
       <div class="metric-card">
-        <div class="metric-num" data-countup data-target="50">0</div>
-        <div class="metric-label"><span data-lang="es">% reducción lead time por feature<br>(3-5 días → 1-2 días)</span><span data-lang="en">% lead time reduction per feature<br>(3-5 days → 1-2 days)</span></div>
+        <div class="metric-num" data-countup data-target="98">0</div>
+        <div class="metric-label"><span data-lang="es">% más volumen de PRs individuales con IA<br>(métricas org. planas sin proceso)</span><span data-lang="en">% more individual PR volume with AI<br>(org-level metrics flat without process)</span></div>
         <div class="metric-source">DORA 2025</div>
       </div>
       <div class="metric-card">
         <div class="metric-num" data-countup data-target="15">0</div>
         <div class="metric-label"><span data-lang="es">% tiempo en escribir tests<br>(antes: 40%)</span><span data-lang="en">% time writing tests<br>(before: 40%)</span></div>
-        <div class="metric-source">Referencia interna</div>
+        <div class="metric-source"><span data-lang="es">Referencia interna</span><span data-lang="en">Internal reference</span></div>
       </div>
       <div class="metric-card">
         <div class="metric-num" data-countup data-target="15">0</div>
         <div class="metric-label"><span data-lang="es">% rechazo en PRs pequeños<br>(vs 67% en PRs grandes)</span><span data-lang="en">% rejection rate for small PRs<br>(vs 67% for large PRs)</span></div>
-        <div class="metric-source">LinearB 2025</div>
+        <div class="metric-source">LinearB 2026</div>
       </div>
       <div class="metric-card">
         <div class="metric-num" data-countup data-target="45">0</div>
-        <div class="metric-label"><span data-lang="es">% mejora de productividad</span><span data-lang="en">% productivity improvement</span></div>
-        <div class="metric-source">McKinsey 2024</div>
+        <div class="metric-label"><span data-lang="es">% más rápido en tareas de código</span><span data-lang="en">% faster in coding tasks</span></div>
+        <div class="metric-source">McKinsey 2023</div>
       </div>
     </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;font-style:italic"><span data-lang="es">Tesis central DORA 2025: "La IA es un amplificador, no una solución." Sin prácticas base, la productividad individual no se traduce en mejora organizacional.</span><span data-lang="en">DORA 2025 central thesis: "AI is an amplifier, not a solution." Without foundational practices, individual productivity does not translate to organizational improvement.</span></p>
   </div>
 </section>
 
@@ -1606,7 +2072,7 @@ Technical constraints:
   <div class="section-num">08</div>
   <div class="section-badge animate">⏱ 5 min</div>
   <h2 class="section-title animate delay-1"><span data-lang="es">Comparativa</span><span data-lang="en">Comparison</span></h2>
-  <p class="section-sub animate delay-2">GitHub Copilot · Claude Code · Gemini CLI · Codex CLI</p>
+  <p class="section-sub animate delay-2">GitHub Copilot · Claude Code · Gemini CLI · Codex CLI · Cursor</p>
 
   <div class="animate delay-2" style="margin-bottom:32px">
     <div class="table-wrap">
@@ -1618,50 +2084,65 @@ Technical constraints:
             <th style="color:var(--accent)">Claude Code</th>
             <th style="color:var(--yellow)">Gemini CLI</th>
             <th style="color:var(--purple)">Codex CLI</th>
+            <th style="color:var(--orange)">Cursor</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span data-lang="es">Integración nativa en IDE</span><span data-lang="en">Native IDE integration</span></td>
-            <td class="check-yes">✅ Excelente</td>
+            <td class="check-yes">✅ <span data-lang="es">Excelente</span><span data-lang="en">Excellent</span></td>
             <td class="check-no">❌ Terminal</td>
             <td class="check-no">❌ Terminal</td>
             <td class="check-no">❌ Terminal</td>
+            <td class="check-yes">✅ <span data-lang="es">Nativo (VS Code fork)</span><span data-lang="en">Native (VS Code fork)</span></td>
           </tr>
           <tr>
             <td>Inline completion</td>
-            <td class="check-yes">✅ Instantáneo</td>
+            <td class="check-yes">✅ <span data-lang="es">Instantáneo</span><span data-lang="en">Instant</span></td>
             <td class="check-no">❌</td>
             <td class="check-no">❌</td>
             <td class="check-no">❌</td>
+            <td class="check-yes">✅ Cursor Tab</td>
           </tr>
           <tr>
             <td><span data-lang="es">Contexto máximo</span><span data-lang="en">Max context</span></td>
-            <td style="color:var(--text-muted)">~64K tokens</td>
+            <td style="color:var(--blue);font-family:var(--font-mono);font-size:12px">~128K <span style="font-size:10px;color:var(--text-muted)">(64K–1M)</span></td>
             <td style="color:var(--accent);font-family:var(--font-mono);font-size:12px">200K tokens</td>
             <td style="color:var(--yellow);font-family:var(--font-mono);font-size:12px">1M tokens</td>
-            <td style="color:var(--text-muted)">~128K tokens</td>
+            <td style="color:var(--purple);font-family:var(--font-mono);font-size:12px">400K tokens</td>
+            <td style="color:var(--orange);font-family:var(--font-mono);font-size:12px">~200K <span style="font-size:10px;color:var(--text-muted)">(Max Mode: 1M)</span></td>
           </tr>
           <tr>
             <td><span data-lang="es">Ejecución autónoma</span><span data-lang="en">Autonomous execution</span></td>
-            <td class="check-warn">⚠️ Limitada</td>
-            <td class="check-yes">✅ Completa</td>
-            <td class="check-yes">✅ Completa</td>
-            <td class="check-yes">✅ Completa</td>
+            <td class="check-yes">✅ Agent Mode <span style="font-size:10px;color:var(--text-muted)">(GA)</span></td>
+            <td class="check-yes">✅ <span data-lang="es">Completa</span><span data-lang="en">Full</span></td>
+            <td class="check-yes">✅ <span data-lang="es">Completa</span><span data-lang="en">Full</span></td>
+            <td class="check-yes">✅ <span data-lang="es">Completa</span><span data-lang="en">Full</span></td>
+            <td class="check-yes">✅ <span data-lang="es">Completa</span><span data-lang="en">Full</span></td>
           </tr>
           <tr>
             <td><span data-lang="es">MCP nativo</span><span data-lang="en">Native MCP</span></td>
-            <td class="check-warn">⚠️ Preview</td>
+            <td class="check-yes">✅ GA</td>
             <td class="check-yes">✅</td>
             <td class="check-yes">✅</td>
-            <td class="check-warn">⚠️</td>
+            <td class="check-yes">✅</td>
+            <td class="check-yes">✅ <span style="font-size:10px;color:var(--text-muted)">(tools)</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="es">Agente cloud / async</span><span data-lang="en">Cloud / async agent</span></td>
+            <td class="check-yes">✅ Coding Agent <span style="font-size:10px;color:var(--text-muted)">(GA)</span></td>
+            <td class="check-no">❌</td>
+            <td class="check-no">❌</td>
+            <td class="check-no">❌</td>
+            <td class="check-yes">✅ Cloud Agents</td>
           </tr>
           <tr>
             <td>Skills</td>
-            <td class="check-warn">⚠️ Via instructions</td>
-            <td class="check-yes">✅</td>
-            <td class="check-no">❌</td>
-            <td class="check-no">❌</td>
+            <td class="check-yes">✅ SKILL.md</td>
+            <td class="check-yes">✅ SKILL.md</td>
+            <td class="check-yes">✅ SKILL.md</td>
+            <td class="check-yes">✅ SKILL.md</td>
+            <td class="check-yes">✅ SKILL.md</td>
           </tr>
         </tbody>
       </table>
@@ -1669,11 +2150,11 @@ Technical constraints:
   </div>
 
   <div class="quote-block animate delay-3">
-    <span data-lang="es">"Copilot gana en integración IDE y autocompletado — la funcionalidad de mayor uso diario. Claude Code / Gemini CLI / Codex ganan en autonomía y contexto largo. No son opciones exclusivas: Copilot para el día a día en el IDE, y un agente CLI para tareas largas autónomas."</span><span data-lang="en">"Copilot wins in IDE integration and autocomplete — the most-used daily feature. Claude Code / Gemini CLI / Codex win in autonomy and long context. They are not exclusive options: Copilot for daily IDE work, and a CLI agent for long autonomous tasks."</span>
+    <span data-lang="es">"Las cinco herramientas ofrecen ejecución autónoma. Copilot y Cursor ganan en integración IDE y autocompletado. Claude Code / Gemini CLI / Codex ofrecen contexto largo y control total desde terminal. No son opciones exclusivas: IDE para el día a día, CLI para tareas largas."</span><span data-lang="en">"All five tools offer autonomous execution. Copilot and Cursor win in IDE integration and autocomplete. Claude Code / Gemini CLI / Codex offer long context and full control from terminal. They are not exclusive options: IDE for daily work, CLI for long tasks."</span>
   </div>
 
   <div class="animate delay-4" style="margin-top:32px">
-    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)"><span data-lang="es">5 tips para Copilot aplicables esta semana</span><span data-lang="en">5 Copilot tips you can apply this week</span></h3>
+    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)"><span data-lang="es">5 tips aplicables esta semana <span style="font-weight:400;font-size:13px;color:var(--text-muted)">(Copilot y cualquier agente)</span></span><span data-lang="en">5 tips you can apply this week <span style="font-weight:400;font-size:13px;color:var(--text-muted)">(Copilot and any agent)</span></span></h3>
     <div style="display:flex;flex-direction:column;gap:8px">
       <div class="card" style="padding:14px 20px;flex-direction:row;display:flex;align-items:flex-start;gap:12px">
         <span style="font-family:var(--font-mono);color:var(--accent);font-weight:700;flex-shrink:0">01</span>
@@ -1685,7 +2166,7 @@ Technical constraints:
       </div>
       <div class="card" style="padding:14px 20px;flex-direction:row;display:flex;align-items:flex-start;gap:12px">
         <span style="font-family:var(--font-mono);color:var(--accent);font-weight:700;flex-shrink:0">03</span>
-        <span style="font-size:13px"><span data-lang="es">Configurar MCP para Jira y GitHub (en preview).</span><span data-lang="en">Configure MCP for Jira and GitHub (in preview).</span></span>
+        <span style="font-size:13px"><span data-lang="es">Configurar MCP para Jira y GitHub.</span><span data-lang="en">Configure MCP for Jira and GitHub.</span></span>
       </div>
       <div class="card" style="padding:14px 20px;flex-direction:row;display:flex;align-items:flex-start;gap:12px">
         <span style="font-family:var(--font-mono);color:var(--accent);font-weight:700;flex-shrink:0">04</span>
@@ -1709,7 +2190,7 @@ Technical constraints:
   <p class="section-sub animate delay-2"><span data-lang="es">El 90% de adopción con malos resultados no viene de que la IA sea mala. Viene de cómo se usa.</span><span data-lang="en">90% of poor adoption results don't come from the AI being bad. They come from how it's used.</span></p>
 
   <div class="quote-block animate delay-2">
-    <span data-lang="es">"Google DORA 2025: +9% bugs, +91% tiempo en review, +154% tamaño de PR. El problema no es la IA. Es la ausencia de proceso."</span><span data-lang="en">"Google DORA 2025: +9% bugs, +91% review time, +154% PR size. The problem is not the AI. It's the absence of process."</span>
+    <span data-lang="es">"Faros AI 2025: +9% bugs, +91% tiempo en review, +154% tamaño de PR. El problema no es la IA. Es la ausencia de proceso."</span><span data-lang="en">"Faros AI 2025: +9% bugs, +91% review time, +154% PR size. The problem is not the AI. It's the absence of process."</span>
   </div>
 
   <div class="grid-2 animate delay-3" style="margin-top:24px;gap:16px">
@@ -1721,7 +2202,7 @@ Technical constraints:
         <span class="badge badge-red" style="margin-left:auto;font-size:10px"><span data-lang="es">el más peligroso</span><span data-lang="en">the most dangerous</span></span>
       </div>
       <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Aceptar el código del agente sin leerlo. Compilar no es correcto. Compilar no es arquitecturalmente sano.</span><span data-lang="en">Accepting the agent's code without reading it. Compiling is not the same as correct. Compiling is not architecturally sound.</span></p>
-      <div class="ap-rule"><span data-lang="es">Si no podéis explicar lo que hace el código, no está listo para mergear.</span><span data-lang="en">If you can't explain what the code does, it's not ready to merge.</span></div>
+      <div class="ap-rule"><span data-lang="es"><strong>Regla:</strong> Si no podéis explicar lo que hace el código, no está listo para mergear.</span><span data-lang="en"><strong>Rule:</strong> If you can't explain what the code does, it's not ready to merge.</span></div>
     </div>
     <!-- AP2 -->
     <div class="ap-card">
@@ -1730,7 +2211,7 @@ Technical constraints:
         <div class="ap-title">Context Poisoning</div>
       </div>
       <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Sesiones largas donde el agente acumula errores y empieza a replicar patrones incorrectos ya corregidos.</span><span data-lang="en">Long sessions where the agent accumulates errors and starts replicating already-corrected incorrect patterns.</span></p>
-      <div class="ap-rule"><span data-lang="es">Sesiones cortas y enfocadas. Nueva sesión = contexto limpio.</span><span data-lang="en">Short and focused sessions. New session = clean context.</span></div>
+      <div class="ap-rule"><span data-lang="es"><strong>Regla:</strong> Sesiones cortas y enfocadas. Nueva sesión = contexto limpio.</span><span data-lang="en"><strong>Rule:</strong> Short and focused sessions. New session = clean context.</span></div>
     </div>
     <!-- AP3 -->
     <div class="ap-card">
@@ -1757,7 +2238,7 @@ pattern, explain why before implementing it.</code></pre>
         <div class="ap-title"><span data-lang="es">Delegación sin comprensión</span><span data-lang="en">Delegation without understanding</span></div>
       </div>
       <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Pedir al agente que implemente algo que no sabéis revisar. Si hay un bug en producción no sabéis por dónde empezar.</span><span data-lang="en">Asking the agent to implement something you can't review. If there's a production bug you don't know where to start.</span></p>
-      <div class="ap-rule"><span data-lang="es">Nunca delegues en el agente un área técnica en la que no puedas revisar el resultado.</span><span data-lang="en">Never delegate to the agent a technical area where you can't review the result.</span></div>
+      <div class="ap-rule"><span data-lang="es"><strong>Regla:</strong> Nunca delegues en el agente un área técnica en la que no puedas revisar el resultado.</span><span data-lang="en"><strong>Rule:</strong> Never delegate to the agent a technical area where you can't review the result.</span></div>
     </div>
     <!-- AP5 -->
     <div class="ap-card">
@@ -1765,8 +2246,8 @@ pattern, explain why before implementing it.</code></pre>
         <div class="ap-tag">AP5</div>
         <div class="ap-title"><span data-lang="es">PRs gigantes</span><span data-lang="en">Giant PRs</span></div>
       </div>
-      <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Los PRs generados por IA tienen de media un <strong style="color:var(--red)">154% más de líneas</strong> que los manuales. Tasa de rechazo: 67% en PRs grandes vs 15% en PRs pequeños (LinearB 2025).</span><span data-lang="en">AI-generated PRs have on average <strong style="color:var(--red)">154% more lines</strong> than manual ones. Rejection rate: 67% for large PRs vs 15% for small PRs (LinearB 2025).</span></p>
-      <div class="ap-rule"><span data-lang="es">Iterar por fases produce PRs pequeños que se mergean.</span><span data-lang="en">Iterating in phases produces small PRs that get merged.</span></div>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Los PRs generados por IA tienen de media un <strong style="color:var(--red)">154% más de líneas</strong> que los manuales (Faros AI 2025). Tasa de rechazo: 67% en PRs grandes vs 15% en PRs pequeños (LinearB 2026).</span><span data-lang="en">AI-generated PRs have on average <strong style="color:var(--red)">154% more lines</strong> than manual ones (Faros AI 2025). Rejection rate: 67% for large PRs vs 15% for small PRs (LinearB 2026).</span></p>
+      <div class="ap-rule"><span data-lang="es"><strong>Regla:</strong> Iterar por fases produce PRs pequeños que se mergean.</span><span data-lang="en"><strong>Rule:</strong> Iterating in phases produces small PRs that get merged.</span></div>
     </div>
     <!-- AP6 -->
     <div class="ap-card">
@@ -1775,7 +2256,7 @@ pattern, explain why before implementing it.</code></pre>
         <div class="ap-title"><span data-lang="es">Código sin tests</span><span data-lang="en">Code without tests</span></div>
       </div>
       <p style="font-size:13px;color:var(--text-muted);line-height:1.6"><span data-lang="es">Sin tests, cada iteración puede romper la anterior sin que os enteréis hasta producción.</span><span data-lang="en">Without tests, each iteration can break the previous one without you noticing until production.</span></p>
-      <div class="ap-rule"><span data-lang="es">No cerréis un ticket sin tests que fallen antes de la implementación y pasen después.</span><span data-lang="en">Don't close a ticket without tests that fail before implementation and pass after.</span></div>
+      <div class="ap-rule"><span data-lang="es"><strong>Regla:</strong> No cerréis un ticket sin tests que fallen antes de la implementación y pasen después.</span><span data-lang="en"><strong>Rule:</strong> Don't close a ticket without tests that fail before implementation and pass after.</span></div>
     </div>
   </div>
 </section>
@@ -1809,7 +2290,7 @@ pattern, explain why before implementing it.</code></pre>
     <details>
       <summary><span data-lang="es">¿Cuánto tiempo ahorra realmente?</span><span data-lang="en">How much time does it really save?</span></summary>
       <div class="faq-body">
-        <p><span data-lang="es"><strong>McKinsey 2024</strong>: las organizaciones reportan mejoras del 25-45% en productividad en seis meses. GitHub indica un 55% más de velocidad en tareas concretas.</span><span data-lang="en"><strong>McKinsey 2024</strong>: organizations report 25-45% productivity improvements in six months. GitHub reports 55% more speed on specific tasks.</span></p>
+        <p><span data-lang="es"><strong>McKinsey 2023</strong> (n=40): un 25-45% más rápido en tareas de código. El <strong>estudio de GitHub</strong> (2023, n=95, peer-reviewed) midió un 55% más rápido en tareas controladas.</span><span data-lang="en"><strong>McKinsey 2023</strong> (n=40): 25-45% faster on coding tasks. The <strong>GitHub study</strong> (2023, n=95, peer-reviewed) measured 55% faster on controlled tasks.</span></p>
         <p><span data-lang="es">Sin embargo, el <strong>METR Study (2025)</strong> encontró que developers experimentados eran un 19% más lentos con herramientas de IA mientras creían ser un 20% más rápidos.</span><span data-lang="en">However, the <strong>METR Study (2025)</strong> found that experienced developers were 19% slower with AI tools while believing they were 20% faster.</span></p>
         <p><span data-lang="es">El ROI real depende de cuánto se invierte en contexto, prompting y revisión de calidad.</span><span data-lang="en">The real ROI depends on how much is invested in context, prompting and quality review.</span></p>
       </div>
@@ -1834,15 +2315,15 @@ pattern, explain why before implementing it.</code></pre>
     <details>
       <summary><span data-lang="es">¿Debería usar Claude Code en lugar de Copilot?</span><span data-lang="en">Should I use Claude Code instead of Copilot?</span></summary>
       <div class="faq-body">
-        <p><span data-lang="es">Depende de la política de tu empresa. Copilot tiene mejor integración con el ecosistema GitHub y es la herramienta corporativa aprobada. Claude Code es técnicamente más potente para tareas complejas y refactors multi-fichero.</span><span data-lang="en">It depends on your company's policy. Copilot has better integration with the GitHub ecosystem and is the approved corporate tool. Claude Code is technically more powerful for complex tasks and multi-file refactors.</span></p>
-        <p><span data-lang="es"><strong>Lo más importante</strong> con cualquiera de los dos: configurar bien los archivos de contexto y aprender a escribir prompts precisos.</span><span data-lang="en"><strong>The most important thing</strong> with either one: properly configure the context files and learn to write precise prompts.</span></p>
+        <p><span data-lang="es">Depende de la política de tu empresa. Copilot tiene mejor integración con el ecosistema GitHub. Claude Code es técnicamente más potente para tareas complejas y refactors multi-fichero. <strong>Cursor</strong> combina IDE nativo (fork de VS Code) con agente autónomo y autocompletado — es una tercera vía para quienes quieren lo mejor de ambos mundos. Windsurf, otro IDE con agente, fue adquirido por Cognition (Devin) en 2025.</span><span data-lang="en">It depends on your company's policy. Copilot has better integration with the GitHub ecosystem. Claude Code is technically more powerful for complex tasks and multi-file refactors. <strong>Cursor</strong> combines a native IDE (VS Code fork) with an autonomous agent and autocomplete — a third option for those who want the best of both worlds. Windsurf, another IDE with an agent, was acquired by Cognition (Devin) in 2025.</span></p>
+        <p><span data-lang="es"><strong>Lo más importante</strong> con cualquiera de ellos: configurar bien los archivos de contexto y aprender a escribir prompts precisos.</span><span data-lang="en"><strong>The most important thing</strong> with any of them: properly configure the context files and learn to write precise prompts.</span></p>
       </div>
     </details>
 
     <details>
       <summary><span data-lang="es">¿Qué es AGENTS.md y por qué importa?</span><span data-lang="en">What is AGENTS.md and why does it matter?</span></summary>
       <div class="faq-body">
-        <p><span data-lang="es">Es un estándar emergente para definir las reglas de comportamiento del agente en un repositorio. GitHub Copilot, Claude Code y otros agentes lo están adoptando.</span><span data-lang="en">It's an emerging standard for defining agent behavior rules in a repository. GitHub Copilot, Claude Code and other agents are adopting it.</span></p>
+        <p><span data-lang="es">Es un estándar AAIF presente en más de 60K repositorios para definir las reglas de comportamiento del agente. GitHub Copilot, Claude Code, Cursor y otros agentes lo leen nativamente.</span><span data-lang="en">It's an AAIF standard present in 60K+ repositories for defining agent behavior rules. GitHub Copilot, Claude Code, Cursor and other agents read it natively.</span></p>
         <p><span data-lang="es">A diferencia de <code style="font-family:var(--font-mono)">copilot-instructions.md</code> (que define convenciones de código), <code style="font-family:var(--font-mono)">AGENTS.md</code> define <strong>qué puede y qué no puede hacer el agente</strong>: qué comandos puede ejecutar, qué ficheros puede modificar, cuál es el flujo de trabajo esperado.</span><span data-lang="en">Unlike <code style="font-family:var(--font-mono)">copilot-instructions.md</code> (which defines code conventions), <code style="font-family:var(--font-mono)">AGENTS.md</code> defines <strong>what the agent can and cannot do</strong>: what commands it can run, what files it can modify, what the expected workflow is.</span></p>
       </div>
     </details>
@@ -1879,15 +2360,23 @@ pattern, explain why before implementing it.</code></pre>
             <span style="font-size:13px">Gemini CLI</span>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">github.com/google-gemini/gemini-cli</code>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px">MCP Spec &amp; Servidores</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px">
+            <span style="font-size:13px"><span data-lang="es">MCP Spec &amp; Servidores</span><span data-lang="en">MCP Spec &amp; Servers</span></span>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">modelcontextprotocol.io</code>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px">Cursor</span>
+            <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">cursor.com/docs</code>
           </div>
         </div>
       </div>
       <div class="card" style="padding:16px 20px">
         <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-bottom:12px;letter-spacing:0.08em"><span data-lang="es">ESTUDIOS &amp; REPORTES</span><span data-lang="en">STUDIES &amp; REPORTS</span></div>
         <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px">
+            <span style="font-size:13px">Faros AI Productivity Paradox 2025</span>
+            <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">faros.ai</code>
+          </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px">
             <span style="font-size:13px">Google DORA Report 2025</span>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">dora.dev</code>
@@ -1897,11 +2386,11 @@ pattern, explain why before implementing it.</code></pre>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">metr.org/blog</code>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px">
-            <span style="font-size:13px">LinearB AI Dev Report 2025</span>
+            <span style="font-size:13px">LinearB Benchmarks 2026</span>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">linearb.io/resources</code>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:13px">McKinsey Tech Report 2024</span>
+            <span style="font-size:13px">McKinsey Developer Productivity 2023</span>
             <code style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">mckinsey.com/capabilities/mckinsey-digital</code>
           </div>
         </div>
@@ -1927,7 +2416,7 @@ pattern, explain why before implementing it.</code></pre>
   </div>
 </section>
 
-<div id="card-modal" role="dialog" aria-modal="true">
+<div id="card-modal" role="dialog" aria-modal="true" aria-label="Expanded view">
   <div id="card-modal-inner"></div>
 </div>
 
@@ -3205,7 +3694,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
 
   sections.forEach(function(s) { observer.observe(s); });
 })();
@@ -3228,7 +3717,7 @@ document.addEventListener('DOMContentLoaded', function() {
 var cardModal = document.getElementById('card-modal');
 var cardModalInner = document.getElementById('card-modal-inner');
 function openCardModal(card) {
-  cardModalInner.innerHTML = '<button id="card-modal-close">✕</button>' + card.innerHTML;
+  cardModalInner.innerHTML = '<button id="card-modal-close" aria-label="Close">✕</button>' + card.innerHTML;
   cardModal.classList.add('open');
   document.getElementById('card-modal-close').addEventListener('click', closeCardModal);
   cardModal.addEventListener('click', function onBgClick(e) {
@@ -3283,10 +3772,11 @@ document.querySelectorAll('.card, .zoom-box, .code-block, .quote-block, .ap-card
       }
       return;
     }
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+    var isPresenting = document.body.classList.contains('presenting');
+    if (isPresenting && (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ')) {
       e.preventDefault();
       scrollToSection(currentIdx() + 1);
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    } else if (isPresenting && (e.key === 'ArrowUp' || e.key === 'ArrowLeft')) {
       e.preventDefault();
       scrollToSection(currentIdx() - 1);
     }
@@ -3299,6 +3789,7 @@ document.querySelectorAll('.card, .zoom-box, .code-block, .quote-block, .ap-card
   var sidebar = document.getElementById('sidebar');
   if (ham && sidebar) ham.addEventListener('click', function() {
     sidebar.classList.toggle('open');
+    ham.setAttribute('aria-expanded', sidebar.classList.contains('open'));
   });
   // close on nav click
   document.querySelectorAll('#sidebar-nav a').forEach(function(a) {
@@ -3386,9 +3877,13 @@ document.querySelectorAll('.card, .zoom-box, .code-block, .quote-block, .ap-card
   var cursor = document.getElementById('tw-cursor');
   if (!target || !cursor) return;
 
-  var text = 'Lee el contexto. Analiza el ticket PROJ-1234.\nMuéstrame el plan de clases antes de implementar.\nEspera mi confirmación.';
+  var textEs = 'Lee el contexto. Analiza el ticket PROJ-1234.\nMuéstrame el plan de clases antes de implementar.\nEspera mi confirmación.';
+  var textEn = 'Read the context. Analyze ticket PROJ-1234.\nShow me the class plan before implementing.\nWait for my confirmation.';
+  var text = document.documentElement.lang === 'en' ? textEn : textEs;
   var i = 0;
   var started = false;
+  var finished = false;
+  var blinkInterval = null;
 
   function type() {
     if (i < text.length) {
@@ -3400,12 +3895,21 @@ document.querySelectorAll('.card, .zoom-box, .code-block, .quote-block, .ap-card
       i++;
       setTimeout(type, 35 + Math.random() * 20);
     } else {
-      // blink cursor
-      setInterval(function() {
+      finished = true;
+      blinkInterval = setInterval(function() {
         cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
       }, 500);
     }
   }
+
+  // Update text when language changes (after typing is done)
+  var langObserver = new MutationObserver(function() {
+    if (finished) {
+      var newText = document.documentElement.lang === 'en' ? textEn : textEs;
+      target.innerHTML = newText.replace(/\n/g, '<br>');
+    }
+  });
+  langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   var termEl = document.querySelector('[data-typewriter="true"]');
   if (!termEl) return;
